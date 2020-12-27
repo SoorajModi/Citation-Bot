@@ -2,12 +2,13 @@ import React from "react";
 import '../css/style.css';
 
 import Header from './Header';
+import HomePage from './HomePage'
 
 function App() {
     return (
         <div>
-            <Header/>
-            <h1>Hello world!</h1>
+            <Header />
+            <HomePage />
         </div>
     );
 }
