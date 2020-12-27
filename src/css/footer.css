@@ -1,0 +1,15 @@
+footer {
+    background: #505050;
+    padding-top: 1.0rem;
+    padding-bottom: 1.0rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer p {
+    display: inline;
+    color: white;
+    padding-left:1rem;
+}
