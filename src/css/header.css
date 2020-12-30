@@ -1,11 +1,4 @@
-header {
+.header_color {
     background-color: #174c60;
-    padding: 16px 32px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
-
-header h1 {
     color: #ffffff;
-    font-family: "McLaren", serif;
-    font-weight: 200;
 }
