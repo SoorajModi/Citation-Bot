@@ -11,6 +11,7 @@ import CMOSBook from './components/CMOSBook';
 import CMOSJournal from './components/CMOSJournal';
 import CMOSWebsite from './components/CMOSWebsite';
 import CMOSLecture from './components/CMOSLecture';
+import NotFound from './components/404';
 
 export default function App() {
   return (
@@ -18,9 +19,6 @@ export default function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/test">
-            <h1>Test</h1>
-          </Route>
           <Route path="/chicago-style-book">
             <CMOSBook />
           </Route>
@@ -33,8 +31,11 @@ export default function App() {
           <Route path="/chicago-style-lecture">
             <CMOSLecture />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Router>
