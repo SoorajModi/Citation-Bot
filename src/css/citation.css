@@ -1,14 +1,12 @@
-.container .foo {
+.data-entry {
     padding-top: 2.5rem;
     padding-bottom: 1.0rem;
 }
 
-.form-text-area {
-    resize: none;
-    white-space: nowrap;
-    overflow-x: scroll;
+.form-start {
+    padding-top: 1.0rem;
 }
 
-.submitBtn {
-    align-content: center;
+.custom-btn {
+    padding-top: 0.5rem;
 }
