@@ -1,3 +1,14 @@
-Form.control {
+.container .foo {
+    padding-top: 2.5rem;
+    padding-bottom: 1.0rem;
+}
+
+.form-text-area {
     resize: none;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+.submitBtn {
+    align-content: center;
 }
