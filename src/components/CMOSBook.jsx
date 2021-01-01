@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
+const CMOS = require('chicagomanualofstyle');
+
 function CMOSBook() {
   // State variable for number of authors
   const emptyAuthor = { first: '', last: '' };
@@ -59,17 +61,20 @@ function CMOSBook() {
     setYop({ yearOfPublication: e });
   };
 
+  const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
+
   const generateCitation = () => {
-    console.log(title.title);
-    console.log(pub.publisher);
-    console.log(pop.placeOfPublication);
-    console.log(yop.yearOfPublication);
-    authors.forEach((author) => {
-      console.log(`First: ${author.first} Last: ${author.last}`);
-    });
-    pages.forEach((page) => {
-      console.log(`Page: ${page.page}`);
-    });
+    const book = CMOS.book({
+      title: title.title,
+      authorList: authors,
+      publisher: pub.publisher,
+      placeOfPublication: pop.placeOfPublication,
+      yearOfPublication: yop.yearOfPublication,
+    }, []);
+
+    console.log(book);
+
+    setCitation({ bibliography: book.bibliography });
   };
 
   return (
@@ -202,7 +207,7 @@ function CMOSBook() {
             </div>
             <hr />
             <Form.Group controlId="Generate Citation">
-              <Form.Control type="text" placeholder="" readOnly />
+              <Form.Control type="text" value={citation.bibliography} readOnly />
             </Form.Group>
           </div>
         </Form>
