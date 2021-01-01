@@ -16,6 +16,12 @@ function CMOSBook() {
   const removeAuthor = () => {
     setAuthors([authors.pop()]);
   };
+  const populateFirstName = (index, e) => {
+    authors[index].first = e;
+  };
+  const populateLastName = (index, e) => {
+    authors[index].last = e;
+  };
 
   const emptyPage = { page: '' };
   const [pages, setPages] = useState([{ ...emptyPage }]);
@@ -24,6 +30,9 @@ function CMOSBook() {
   };
   const removePage = () => {
     setPages([pages.pop()]);
+  };
+  const populatePage = (index, e) => {
+    pages[index].page = e;
   };
 
   const [title, setTitle] = useState({ title: 'Test' });
@@ -57,6 +66,9 @@ function CMOSBook() {
     console.log(yop.yearOfPublication);
     authors.forEach((author) => {
       console.log(`First: ${author.first} Last: ${author.last}`);
+    });
+    pages.forEach((page) => {
+      console.log(`Page: ${page.page}`);
     });
   };
 
@@ -98,7 +110,7 @@ function CMOSBook() {
               </Col>
             </Form.Group>
             <div>
-              <Form.Label column sm="1">
+              <Form.Label column sm="12">
                 Authors
               </Form.Label>
               {
@@ -116,7 +128,7 @@ function CMOSBook() {
                                 First Name
                               </Form.Label>
                               <Col sm="10">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" onChange={(e) => populateFirstName(idx, e.target.value)} />
                               </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId={lastId}>
@@ -124,7 +136,7 @@ function CMOSBook() {
                                 Last Name
                               </Form.Label>
                               <Col sm="10">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" onChange={(e) => populateLastName(idx, e.target.value)} />
                               </Col>
                             </Form.Group>
                           </div>
@@ -145,7 +157,7 @@ function CMOSBook() {
               </div>
             </div>
             <div>
-              <Form.Label column sm="1">
+              <Form.Label column sm="12">
                 Pages
               </Form.Label>
               {
@@ -163,7 +175,7 @@ function CMOSBook() {
                                 Page
                               </Form.Label>
                               <Col sm="10">
-                                <Form.Control type="text" />
+                                <Form.Control type="text" onChange={(e) => populatePage(idx, e.target.value)} />
                               </Col>
                             </Form.Group>
                           </div>
