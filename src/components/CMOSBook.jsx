@@ -26,6 +26,40 @@ function CMOSBook() {
     setPages([pages.pop()]);
   };
 
+  const [title, setTitle] = useState({ title: 'Test' });
+
+  const newTitle = (e) => {
+    setTitle({ title: e });
+  };
+
+  const [pub, setPub] = useState({ publisher: '' });
+
+  const newPub = (e) => {
+    setPub({ publisher: e });
+  };
+
+  const [pop, setPop] = useState({ placeOfPublication: '' });
+
+  const newPop = (e) => {
+    setPop({ placeOfPublication: e });
+  };
+
+  const [yop, setYop] = useState({ yearOfPublication: '' });
+
+  const newYop = (e) => {
+    setYop({ yearOfPublication: e });
+  };
+
+  const generateCitation = () => {
+    console.log(title.title);
+    console.log(pub.publisher);
+    console.log(pop.placeOfPublication);
+    console.log(yop.yearOfPublication);
+    authors.forEach((author) => {
+      console.log(`First: ${author.first} Last: ${author.last}`);
+    });
+  };
+
   return (
     <div className="container data-entry">
       <Card>
@@ -36,7 +70,7 @@ function CMOSBook() {
                 Title
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" />
+                <Form.Control type="text" onChange={(e) => newTitle(e.target.value)} />
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="inputPublisher">
@@ -44,7 +78,7 @@ function CMOSBook() {
                 Publisher
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" />
+                <Form.Control type="text" onChange={(e) => newPub(e.target.value)} />
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="inputPOP">
@@ -52,7 +86,7 @@ function CMOSBook() {
                 Place of Publication
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" />
+                <Form.Control type="text" onChange={(e) => newPop(e.target.value)} />
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="inputYOP">
@@ -60,7 +94,7 @@ function CMOSBook() {
                 Year of Publication
               </Form.Label>
               <Col sm="10">
-                <Form.Control type="text" />
+                <Form.Control type="text" onChange={(e) => newYop(e.target.value)} />
               </Col>
             </Form.Group>
             <div>
@@ -99,12 +133,12 @@ function CMOSBook() {
                     </div>
                   );
                 })
-              }
+                            }
               <div className="text-center custom-btn">
                 <Button variant="primary" onClick={addAuthor}>
                   Add Author
                 </Button>
-                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                 <Button variant="primary" onClick={removeAuthor}>
                   Reset Authors
                 </Button>
@@ -138,19 +172,19 @@ function CMOSBook() {
                     </div>
                   );
                 })
-              }
+                            }
               <div className="text-center custom-btn">
                 <Button variant="primary" onClick={addPage}>
                   Add Page
                 </Button>
-                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                 <Button variant="primary" onClick={removePage}>
                   Reset Pages
                 </Button>
               </div>
             </div>
             <div className="text-center custom-btn">
-              <Button variant="primary" type="submit" className="center-block">
+              <Button variant="primary" onClick={generateCitation} className="center-block">
                 Submit
               </Button>
             </div>
