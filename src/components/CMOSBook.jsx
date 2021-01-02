@@ -9,55 +9,18 @@ import Card from 'react-bootstrap/Card';
 const CMOS = require('chicagomanualofstyle');
 
 function CMOSBook() {
-  // State variable for number of authors
+  // State variables
   const emptyAuthor = { first: '', last: '' };
-  const [authors, setAuthors] = useState([{ ...emptyAuthor }]);
-  const addAuthor = () => {
-    setAuthors([...authors, { ...emptyAuthor }]);
-  };
-  const removeAuthor = () => {
-    setAuthors([authors.pop()]);
-  };
-  const populateFirstName = (index, e) => {
-    authors[index].first = e;
-  };
-  const populateLastName = (index, e) => {
-    authors[index].last = e;
-  };
-
   const emptyPage = { page: '' };
+  const [authors, setAuthors] = useState([{ ...emptyAuthor }]);
   const [pages, setPages] = useState([{ ...emptyPage }]);
-  const addPage = () => {
-    setPages([...pages, { ...emptyPage }]);
-  };
-  const removePage = () => {
-    setPages([pages.pop()]);
-  };
-  const populatePage = (index, e) => {
-    pages[index].page = e;
-  };
-
   const [title, setTitle] = useState({ title: 'No title specified' });
-  const newTitle = (e) => {
-    setTitle({ title: e });
-  };
-
   const [pub, setPub] = useState({ publisher: '' });
-  const newPub = (e) => {
-    setPub({ publisher: e });
-  };
-
   const [pop, setPop] = useState({ placeOfPublication: '' });
-  const newPop = (e) => {
-    setPop({ placeOfPublication: e });
-  };
-
   const [yop, setYop] = useState({ yearOfPublication: '' });
-  const newYop = (e) => {
-    setYop({ yearOfPublication: e });
-  };
-
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
+
+  // Function to update state
   const generateCitation = () => {
     const book = CMOS.book({
       title: title.title,
@@ -67,6 +30,56 @@ function CMOSBook() {
       yearOfPublication: yop.yearOfPublication,
     }, []);
     setCitation({ bibliography: book.bibliography });
+  };
+
+  const addAuthor = () => {
+    setAuthors([...authors, { ...emptyAuthor }]);
+  };
+
+  const removeAuthor = () => {
+    setAuthors([authors.pop()]);
+  };
+
+  const populateFirstName = (index, e) => {
+    authors[index].first = e;
+    generateCitation();
+  };
+
+  const populateLastName = (index, e) => {
+    authors[index].last = e;
+    generateCitation();
+  };
+
+  const addPage = () => {
+    setPages([...pages, { ...emptyPage }]);
+  };
+
+  const removePage = () => {
+    setPages([pages.pop()]);
+  };
+
+  const populatePage = (index, e) => {
+    pages[index].page = e;
+  };
+
+  const newTitle = (e) => {
+    setTitle({ title: e });
+    generateCitation();
+  };
+
+  const newPub = (e) => {
+    setPub({ publisher: e });
+    generateCitation();
+  };
+
+  const newPop = (e) => {
+    setPop({ placeOfPublication: e });
+    generateCitation();
+  };
+
+  const newYop = (e) => {
+    setYop({ yearOfPublication: e });
+    generateCitation();
   };
 
   return (
