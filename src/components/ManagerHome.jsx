@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CMOSHome() {
+function ManagerHome() {
   return (
     <div className="container">
       <div className="card">
@@ -10,10 +10,9 @@ function CMOSHome() {
           </div>
           <div className="col">
             <div className="card-block px-2">
-              <h4 className="card-title">Chicago Manual of Style (17th Edition)</h4>
+              <h4 className="card-title">Manage Citations for Projects</h4>
               <p className="card-text">
-                Automatically generate bibliography and note citations for Books, Electronic Books,
-                Journals, Electronic Journals, Lectures, Webpages, and more. Includes support for multiple authors.
+                Create new projects and save citations.
               </p>
             </div>
           </div>
@@ -24,4 +23,4 @@ function CMOSHome() {
   );
 }
 
-export default CMOSHome;
+export default ManagerHome;

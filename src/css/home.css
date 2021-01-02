@@ -2,13 +2,26 @@
     text-align: center;
 }
 
-.homeTitle {
+.jumbotron {
+    background-color:#e3c2a3 !important;
+}
+
+.home-title {
     padding-top: 5.0rem;
     padding-bottom: 5.0rem;
 }
 
-.homeTitle h4 {
+.home-title h4 {
     padding-top: 1.0rem;
+}
+
+.card-block h4 {
+    padding-top: 2.5rem;
+}
+
+.card-block p {
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
 }
 
 img {

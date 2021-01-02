@@ -15,10 +15,12 @@ import NotFound from './components/404';
 import Resources from './components/Resources';
 import Contact from './components/Contact';
 import About from './components/About';
+import Meta from './components/Meta';
 
 export default function App() {
   return (
     <div>
+      <Meta />
       <Header />
       <Router>
         <Switch>
