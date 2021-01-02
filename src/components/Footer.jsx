@@ -4,10 +4,9 @@ import '../css/footer.css';
 function Footer() {
   return (
     <footer>
-      <p>About</p>
-      <p>Contact</p>
-      <p>Resources</p>
-      <p>Code</p>
+      <p><a href="/about">About</a></p>
+      <p><a href="/contact">Contact</a></p>
+      <p><a href="https://github.com/SoorajModi/Citation-Manager">Code</a></p>
     </footer>
   );
 }

@@ -10,11 +10,11 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown title="Chicago" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/chicago-style-book">Book</NavDropdown.Item>
-              <NavDropdown.Item href="/chicago-style-journal">Journal</NavDropdown.Item>
-              <NavDropdown.Item href="/chicago-style-website">Website</NavDropdown.Item>
-              <NavDropdown.Item href="/chicago-style-lecture">Lecture</NavDropdown.Item>
+            <NavDropdown title="Chicago" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="/chicago-book">Book</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-journal">Journal</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-website">Website</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-lecture">Lecture</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
