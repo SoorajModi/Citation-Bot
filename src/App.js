@@ -13,8 +13,8 @@ import CMOSWebsite from './components/CMOSWebsite';
 import CMOSLecture from './components/CMOSLecture';
 import NotFound from './components/404';
 import Resources from './components/Resources';
-import Contact from "./components/Contact";
-import About from "./components/About";
+import Contact from './components/Contact';
+import About from './components/About';
 
 export default function App() {
   return (

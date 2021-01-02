@@ -10,3 +10,7 @@
 .homeTitle h4 {
     padding-top: 1.0rem;
 }
+
+img {
+    max-width: 10px;
+}

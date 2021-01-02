@@ -1,11 +1,14 @@
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 function HomeTitle() {
   return (
-    <div className="homeTitle">
-      <h1>Citation Manager</h1>
-      <h4>Easily generate and manage your citations</h4>
-    </div>
+    <Jumbotron>
+      <div className="homeTitle">
+        <h1>Citation Manager</h1>
+        <h4>Easily generate and manage your citations</h4>
+      </div>
+    </Jumbotron>
   );
 }
 
