@@ -1,5 +1,5 @@
 .data-entry {
-    padding-top: 2.5rem;
+    padding-top: 1.0rem;
     padding-bottom: 1.0rem;
 }
 
@@ -9,4 +9,10 @@
 
 .custom-btn {
     padding-top: 0.5rem;
+}
+
+.subpage-heading {
+    text-align: center;
+    padding-top: 2.5rem;
+    padding-bottom: 1.0rem;
 }

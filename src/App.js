@@ -12,6 +12,7 @@ import CMOSJournal from './components/CMOSJournal';
 import CMOSWebsite from './components/CMOSWebsite';
 import CMOSLecture from './components/CMOSLecture';
 import NotFound from './components/404';
+import Resources from './components/Resources';
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
           </Route>
           <Route path="/chicago-style-lecture">
             <CMOSLecture />
+          </Route>
+          <Route path="/resources">
+            <Resources />
           </Route>
           <Route exact path="/">
             <Home />

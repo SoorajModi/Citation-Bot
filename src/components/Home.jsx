@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/homePage.css';
+import '../css/home.css';
 import HomeTitle from './HomeTitle';
 
 function Home() {
