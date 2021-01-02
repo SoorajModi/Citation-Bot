@@ -20,27 +20,13 @@ export default function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/chicago-style-book">
-            <CMOSBook />
-          </Route>
-          <Route path="/chicago-style-journal">
-            <CMOSJournal />
-          </Route>
-          <Route path="/chicago-style-website">
-            <CMOSWebsite />
-          </Route>
-          <Route path="/chicago-style-lecture">
-            <CMOSLecture />
-          </Route>
-          <Route path="/resources">
-            <Resources />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
+          <Route path="/chicago-style-book" component={CMOSBook} />
+          <Route path="/chicago-style-journal" component={CMOSJournal} />
+          <Route path="/chicago-style-website" component={CMOSWebsite} />
+          <Route path="/chicago-style-lecture" component={CMOSLecture} />
+          <Route path="/resources" component={Resources} />
+          <Route exact path="/" component={Home} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
       <Footer />
