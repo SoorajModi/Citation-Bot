@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import '../css/subpage.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import '../css/subpage.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import PlaceOfPublication from './PlaceOfPublication';
+import YearOfPublication from './YearOfPublication';
+import Publisher from './Publisher';
+import Title from './Title';
 
 const CMOS = require('chicagomanualofstyle');
 
@@ -89,38 +93,10 @@ function CMOSBook() {
         <Card>
           <Form>
             <div className="container form-start">
-              <Form.Group as={Row} controlId="inputTitle">
-                <Form.Label column sm="2">
-                  Title
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" onChange={(e) => newTitle(e.target.value)} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row} controlId="inputPublisher">
-                <Form.Label column sm="2">
-                  Publisher
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" onChange={(e) => newPub(e.target.value)} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row} controlId="inputPOP">
-                <Form.Label column sm="2">
-                  Place of Publication
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" onChange={(e) => newPop(e.target.value)} />
-                </Col>
-              </Form.Group>
-              <Form.Group as={Row} controlId="inputYOP">
-                <Form.Label column sm="2">
-                  Year of Publication
-                </Form.Label>
-                <Col sm="10">
-                  <Form.Control type="text" onChange={(e) => newYop(e.target.value)} />
-                </Col>
-              </Form.Group>
+              <Title title={title} onTitleChange={newTitle} />
+              <Publisher pub={pub} onPubChange={newPub} />
+              <PlaceOfPublication pop={pop} onPopChange={newPop} />
+              <YearOfPublication yop={yop} onYopChange={newYop} />
               <div>
                 <Form.Label column sm="12">
                   Authors
