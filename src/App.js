@@ -7,10 +7,10 @@ import {
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CMOSBook from './components/CMOSBook';
-import CMOSJournal from './components/CMOSJournal';
-import CMOSWebsite from './components/CMOSWebsite';
-import CMOSLecture from './components/CMOSLecture';
+import CMOSBook from './components/chicagoComponents/CMOSBook';
+import CMOSJournal from './components/chicagoComponents/CMOSJournal';
+import CMOSWebsite from './components/chicagoComponents/CMOSWebsite';
+import CMOSLecture from './components/chicagoComponents/CMOSLecture';
 import NotFound from './components/404';
 import Resources from './components/Resources';
 import Contact from './components/Contact';

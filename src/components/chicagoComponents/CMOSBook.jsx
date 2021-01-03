@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import '../css/subpage.css';
+import '../../css/subpage.css';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import PlaceOfPublication from './formComponents/PlaceOfPublication';
-import YearOfPublication from './formComponents/YearOfPublication';
-import Publisher from './formComponents/Publisher';
-import Title from './formComponents/Title';
-import Authors from './formComponents/Authors';
-import Pages from './formComponents/Pages';
-import Citation from './formComponents/Citaton';
+import PlaceOfPublication from '../formComponents/PlaceOfPublication';
+import YearOfPublication from '../formComponents/YearOfPublication';
+import Publisher from '../formComponents/Publisher';
+import Title from '../formComponents/Title';
+import Authors from '../formComponents/Authors';
+import Pages from '../formComponents/Pages';
+import Citation from '../formComponents/Citaton';
 
 const CMOS = require('chicagomanualofstyle');
 
