@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import '../css/subpage.css';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PlaceOfPublication from './formComponents/PlaceOfPublication';
 import YearOfPublication from './formComponents/YearOfPublication';
 import Publisher from './formComponents/Publisher';
 import Title from './formComponents/Title';
 import Authors from './formComponents/Authors';
 import Pages from './formComponents/Pages';
+import Citation from './formComponents/Citaton';
 
 const CMOS = require('chicagomanualofstyle');
 
@@ -50,20 +47,7 @@ function CMOSBook() {
               <YearOfPublication yop={yop} setYop={setYop} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
               <Pages pages={pages} setPages={setPages} />
-              <div className="text-center custom-btn">
-                <Button variant="primary" onClick={generateCitation} className="center-block">
-                  Generate
-                </Button>
-              </div>
-              <hr />
-              <Form.Group controlId="Generate Citation">
-                <Form.Control type="text" value={citation.bibliography} readOnly />
-                <CopyToClipboard text={citation.bibliography}>
-                  <Button variant="secondary">
-                    <FontAwesomeIcon icon={faClipboard} />
-                  </Button>
-                </CopyToClipboard>
-              </Form.Group>
+              <Citation bibliography={citation.bibliography} generateCitation={generateCitation} />
             </div>
           </Form>
         </Card>
