@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import '../css/subpage.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import PlaceOfPublication from './PlaceOfPublication';
-import YearOfPublication from './YearOfPublication';
-import Publisher from './Publisher';
-import Title from './Title';
+import PlaceOfPublication from './formComponents/PlaceOfPublication';
+import YearOfPublication from './formComponents/YearOfPublication';
+import Publisher from './formComponents/Publisher';
+import Title from './formComponents/Title';
+import Authors from './formComponents/Authors';
+import Pages from './formComponents/Pages';
 
 const CMOS = require('chicagomanualofstyle');
 
@@ -97,92 +97,8 @@ function CMOSBook() {
               <Publisher pub={pub} onPubChange={newPub} />
               <PlaceOfPublication pop={pop} onPopChange={newPop} />
               <YearOfPublication yop={yop} onYopChange={newYop} />
-              <div>
-                <Form.Label column sm="12">
-                  Authors
-                </Form.Label>
-                {
-                authors.map((val, idx) => {
-                  const firstId = `first-${idx}`;
-                  const lastId = `last-${idx}`;
-
-                  return (
-                    <div className="container">
-                      <Card>
-                        <Form>
-                          <div className="container form-start">
-                            <Form.Group as={Row} controlId={firstId}>
-                              <Form.Label column sm="2">
-                                First Name
-                              </Form.Label>
-                              <Col sm="10">
-                                <Form.Control type="text" onChange={(e) => populateFirstName(idx, e.target.value)} />
-                              </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} controlId={lastId}>
-                              <Form.Label column sm="2">
-                                Last Name
-                              </Form.Label>
-                              <Col sm="10">
-                                <Form.Control type="text" onChange={(e) => populateLastName(idx, e.target.value)} />
-                              </Col>
-                            </Form.Group>
-                          </div>
-                        </Form>
-                      </Card>
-                    </div>
-                  );
-                })
-                            }
-                <div className="text-center custom-btn">
-                  <Button variant="primary" onClick={addAuthor}>
-                    Add Author
-                  </Button>
-                                &nbsp;&nbsp;&nbsp;
-                  <Button variant="primary" onClick={removeAuthor}>
-                    Reset Authors
-                  </Button>
-                </div>
-              </div>
-              <div>
-                <Form.Label column sm="12">
-                  Pages
-                </Form.Label>
-                {
-                pages.map((val, idx) => {
-                  const pageId = `page-${idx}`;
-
-                  return (
-                    <div className="container">
-                      <Card>
-                        <Form>
-                          <div className="container form-start">
-
-                            <Form.Group as={Row} controlId={pageId}>
-                              <Form.Label column sm="2">
-                                Page
-                              </Form.Label>
-                              <Col sm="10">
-                                <Form.Control type="text" onChange={(e) => populatePage(idx, e.target.value)} />
-                              </Col>
-                            </Form.Group>
-                          </div>
-                        </Form>
-                      </Card>
-                    </div>
-                  );
-                })
-                            }
-                <div className="text-center custom-btn">
-                  <Button variant="primary" onClick={addPage}>
-                    Add Page
-                  </Button>
-                                &nbsp;&nbsp;&nbsp;
-                  <Button variant="primary" onClick={removePage}>
-                    Reset Pages
-                  </Button>
-                </div>
-              </div>
+              <Authors authors={authors} onFirstChange={populateFirstName} onLastChange={populateLastName} addAuthor={addAuthor} removeAuthor={removeAuthor} />
+              <Pages pages={pages} onPageChange={populatePage} addPage={addPage} removePage={removePage} />
               <div className="text-center custom-btn">
                 <Button variant="primary" onClick={generateCitation} className="center-block">
                   Submit
