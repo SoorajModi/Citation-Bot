@@ -6,8 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+const emptyPage = { page: '' };
+
 const Pages = ({
-  pages, onPageChange, addPage, removePage,
+  pages, setPages, onPageChange,
 }) => (
   <div>
     <Form.Label column sm="12">
@@ -39,11 +41,11 @@ const Pages = ({
             })
         }
     <div className="text-center custom-btn">
-      <Button variant="primary" onClick={addPage}>
+      <Button variant="primary" onClick={() => setPages([...pages, { ...emptyPage }])}>
         Add Page
       </Button>
             &nbsp;&nbsp;&nbsp;
-      <Button variant="primary" onClick={removePage}>
+      <Button variant="primary" onClick={() => setPages([])}>
         Reset Pages
       </Button>
     </div>
@@ -52,18 +54,16 @@ const Pages = ({
 
 Pages.defaultProps = {
   pages: [],
+  setPages: null,
   onPageChange: null,
-  addPage: null,
-  removePage: null,
 };
 
 Pages.propTypes = {
   pages: PropTypes.arrayOf(
     PropTypes.string,
   ),
+  setPages: PropTypes.func,
   onPageChange: PropTypes.func,
-  addPage: PropTypes.func,
-  removePage: PropTypes.func,
 };
 
 export default Pages;

@@ -6,8 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+const emptyAuthor = { first: '', last: '' };
+
 const Authors = ({
-  authors, onFirstChange, onLastChange, addAuthor, removeAuthor,
+  authors, setAuthors, onFirstChange, onLastChange,
 }) => (
   <div>
     <Form.Label column sm="12">
@@ -47,11 +49,11 @@ const Authors = ({
         })
     }
     <div className="text-center custom-btn">
-      <Button variant="primary" onClick={addAuthor}>
+      <Button variant="primary" onClick={() => setAuthors([...authors, { ...emptyAuthor }])}>
         Add Author
       </Button>
         &nbsp;&nbsp;&nbsp;
-      <Button variant="primary" onClick={removeAuthor}>
+      <Button variant="primary" onClick={() => setAuthors([])}>
         Reset Authors
       </Button>
     </div>
@@ -60,10 +62,9 @@ const Authors = ({
 
 Authors.defaultProps = {
   authors: [{ first: '', last: '' }],
+  setAuthors: null,
   onFirstChange: null,
   onLastChange: null,
-  addAuthor: null,
-  removeAuthor: null,
 };
 
 Authors.propTypes = {
@@ -73,10 +74,9 @@ Authors.propTypes = {
       last: PropTypes.string,
     }),
   ),
+  setAuthors: PropTypes.func,
   onFirstChange: PropTypes.func,
   onLastChange: PropTypes.func,
-  addAuthor: PropTypes.func,
-  removeAuthor: PropTypes.func,
 };
 
 export default Authors;

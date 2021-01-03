@@ -17,10 +17,8 @@ const CMOS = require('chicagomanualofstyle');
 
 function CMOSBook() {
   // State variables
-  const emptyAuthor = { first: '', last: '' };
-  const emptyPage = { page: '' };
-  const [authors, setAuthors] = useState([{ ...emptyAuthor }]);
-  const [pages, setPages] = useState([{ ...emptyPage }]);
+  const [authors, setAuthors] = useState([]);
+  const [pages, setPages] = useState([]);
   const [title, setTitle] = useState({ title: 'No title specified' });
   const [pub, setPub] = useState({ publisher: '' });
   const [pop, setPop] = useState({ placeOfPublication: '' });
@@ -39,14 +37,6 @@ function CMOSBook() {
     setCitation({ bibliography: book.bibliography });
   };
 
-  const addAuthor = () => {
-    setAuthors([...authors, { ...emptyAuthor }]);
-  };
-
-  const removeAuthor = () => {
-    setAuthors([authors.pop()]);
-  };
-
   const populateFirstName = (index, e) => {
     authors[index].first = e;
     generateCitation();
@@ -55,14 +45,6 @@ function CMOSBook() {
   const populateLastName = (index, e) => {
     authors[index].last = e;
     generateCitation();
-  };
-
-  const addPage = () => {
-    setPages([...pages, { ...emptyPage }]);
-  };
-
-  const removePage = () => {
-    setPages([pages.pop()]);
   };
 
   const populatePage = (index, e) => {
@@ -100,8 +82,8 @@ function CMOSBook() {
               <Publisher pub={pub} onPubChange={newPub} />
               <PlaceOfPublication pop={pop} onPopChange={newPop} />
               <YearOfPublication yop={yop} onYopChange={newYop} />
-              <Authors authors={authors} onFirstChange={populateFirstName} onLastChange={populateLastName} addAuthor={addAuthor} removeAuthor={removeAuthor} />
-              <Pages pages={pages} onPageChange={populatePage} addPage={addPage} removePage={removePage} />
+              <Authors authors={authors} setAuthors={setAuthors} onFirstChange={populateFirstName} onLastChange={populateLastName} />
+              <Pages pages={pages} setPages={setPages} onPageChange={populatePage} />
               <div className="text-center custom-btn">
                 <Button variant="primary" onClick={generateCitation} className="center-block">
                   Submit
