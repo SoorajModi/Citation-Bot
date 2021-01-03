@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import HomeTitle from '../components/HomeTitle';
+import HomeTitle from '../components/homeComponents/HomeTitle';
 
 test('should render title of application', () => {
   render(<HomeTitle />);
