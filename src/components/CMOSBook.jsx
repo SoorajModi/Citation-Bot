@@ -37,40 +37,6 @@ function CMOSBook() {
     setCitation({ bibliography: book.bibliography });
   };
 
-  const populateFirstName = (index, e) => {
-    authors[index].first = e;
-    generateCitation();
-  };
-
-  const populateLastName = (index, e) => {
-    authors[index].last = e;
-    generateCitation();
-  };
-
-  const populatePage = (index, e) => {
-    pages[index].page = e;
-  };
-
-  const newTitle = (e) => {
-    setTitle({ title: e });
-    generateCitation();
-  };
-
-  const newPub = (e) => {
-    setPub({ publisher: e });
-    generateCitation();
-  };
-
-  const newPop = (e) => {
-    setPop({ placeOfPublication: e });
-    generateCitation();
-  };
-
-  const newYop = (e) => {
-    setYop({ yearOfPublication: e });
-    generateCitation();
-  };
-
   return (
     <div className="container">
       <h1 className="subpage-heading">Chicago Style Book Citation</h1>
@@ -78,15 +44,15 @@ function CMOSBook() {
         <Card>
           <Form>
             <div className="container form-start">
-              <Title title={title} onTitleChange={newTitle} />
-              <Publisher pub={pub} onPubChange={newPub} />
-              <PlaceOfPublication pop={pop} onPopChange={newPop} />
-              <YearOfPublication yop={yop} onYopChange={newYop} />
-              <Authors authors={authors} setAuthors={setAuthors} onFirstChange={populateFirstName} onLastChange={populateLastName} />
-              <Pages pages={pages} setPages={setPages} onPageChange={populatePage} />
+              <Title title={title} setTitle={setTitle} generateCitation={generateCitation} />
+              <Publisher pub={pub} setPub={setPub} generateCitation={generateCitation} />
+              <PlaceOfPublication pop={pop} setPop={setPop} generateCitation={generateCitation} />
+              <YearOfPublication yop={yop} setYop={setYop} generateCitation={generateCitation} />
+              <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+              <Pages pages={pages} setPages={setPages} />
               <div className="text-center custom-btn">
                 <Button variant="primary" onClick={generateCitation} className="center-block">
-                  Submit
+                  Generate
                 </Button>
               </div>
               <hr />

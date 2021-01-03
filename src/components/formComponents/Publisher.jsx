@@ -4,25 +4,32 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Publisher = ({ pub, onPubChange }) => (
+const onPubChange = (setPub, e, generateCitation) => {
+  setPub({ publisher: e });
+  generateCitation();
+};
+
+const Publisher = ({ pub, setPub, generateCitation }) => (
   <Form.Group as={Row} controlId="inputPublisher">
     <Form.Label column sm="2">
       Publisher
     </Form.Label>
     <Col sm="10">
-      <Form.Control type="text" value={pub.publisher} onChange={(e) => onPubChange(e.target.value)} />
+      <Form.Control type="text" value={pub.publisher} onChange={(e) => onPubChange(setPub, e.target.value, generateCitation)} />
     </Col>
   </Form.Group>
 );
 
 Publisher.defaultProps = {
   pub: { publisher: '' },
-  onPubChange: null,
+  setPub: null,
+  generateCitation: null,
 };
 
 Publisher.propTypes = {
   pub: PropTypes.shape({ publisher: PropTypes.string }),
-  onPubChange: PropTypes.func,
+  setPub: PropTypes.func,
+  generateCitation: PropTypes.func,
 };
 
 export default Publisher;

@@ -8,8 +8,12 @@ import Button from 'react-bootstrap/Button';
 
 const emptyPage = { page: '' };
 
+const populatePage = (pages, index, e) => {
+  pages[index].page = e;
+};
+
 const Pages = ({
-  pages, setPages, onPageChange,
+  pages, setPages,
 }) => (
   <div>
     <Form.Label column sm="12">
@@ -30,7 +34,7 @@ const Pages = ({
                             Page
                           </Form.Label>
                           <Col sm="10">
-                            <Form.Control type="text" value={pages[idx].toString} onChange={(e) => onPageChange(idx, e.target.value)} />
+                            <Form.Control type="text" value={pages[idx].page} onChange={(e) => populatePage(pages, idx, e.target.value)} />
                           </Col>
                         </Form.Group>
                       </div>
@@ -55,7 +59,6 @@ const Pages = ({
 Pages.defaultProps = {
   pages: [],
   setPages: null,
-  onPageChange: null,
 };
 
 Pages.propTypes = {
@@ -63,7 +66,6 @@ Pages.propTypes = {
     PropTypes.string,
   ),
   setPages: PropTypes.func,
-  onPageChange: PropTypes.func,
 };
 
 export default Pages;

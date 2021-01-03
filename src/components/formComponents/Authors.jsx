@@ -8,8 +8,18 @@ import Button from 'react-bootstrap/Button';
 
 const emptyAuthor = { first: '', last: '' };
 
+const onFirstNameChange = (authors, index, e, generateCitation) => {
+  authors[index].first = e;
+  generateCitation();
+};
+
+const onLastNameChange = (authors, index, e, generateCitation) => {
+  authors[index].last = e;
+  generateCitation();
+};
+
 const Authors = ({
-  authors, setAuthors, onFirstChange, onLastChange,
+  authors, setAuthors, generateCitation,
 }) => (
   <div>
     <Form.Label column sm="12">
@@ -30,7 +40,7 @@ const Authors = ({
                         First Name
                       </Form.Label>
                       <Col sm="10">
-                        <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstChange(idx, e.target.value)} />
+                        <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstNameChange(authors, idx, e.target.value, generateCitation)} />
                       </Col>
                     </Form.Group>
                     <Form.Group as={Row} controlId={lastId}>
@@ -38,7 +48,7 @@ const Authors = ({
                         Last Name
                       </Form.Label>
                       <Col sm="10">
-                        <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastChange(idx, e.target.value)} />
+                        <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastNameChange(authors, idx, e.target.value, generateCitation)} />
                       </Col>
                     </Form.Group>
                   </div>
@@ -63,8 +73,7 @@ const Authors = ({
 Authors.defaultProps = {
   authors: [{ first: '', last: '' }],
   setAuthors: null,
-  onFirstChange: null,
-  onLastChange: null,
+  generateCitation: null,
 };
 
 Authors.propTypes = {
@@ -75,8 +84,7 @@ Authors.propTypes = {
     }),
   ),
   setAuthors: PropTypes.func,
-  onFirstChange: PropTypes.func,
-  onLastChange: PropTypes.func,
+  generateCitation: PropTypes.func,
 };
 
 export default Authors;
