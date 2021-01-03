@@ -12,7 +12,7 @@ import Citation from '../formComponents/Citaton';
 
 const CMOS = require('chicagomanualofstyle');
 
-function CMOSBook() {
+function ChicagoBook() {
   // State variables
   const [authors, setAuthors] = useState([]);
   const [pages, setPages] = useState([]);
@@ -56,4 +56,4 @@ function CMOSBook() {
   );
 }
 
-export default CMOSBook;
+export default ChicagoBook;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function CMOSJournal() {
+function ChicagoJournal() {
     return (
         <h1>Chicago Manual of Style Journal</h1>
     );
 }
 
-export default CMOSJournal;
+export default ChicagoJournal;

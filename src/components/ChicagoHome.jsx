@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CMOSHome() {
+function ChicagoHome() {
   return (
     <div className="container">
       <div className="card">
@@ -24,4 +24,4 @@ function CMOSHome() {
   );
 }
 
-export default CMOSHome;
+export default ChicagoHome;

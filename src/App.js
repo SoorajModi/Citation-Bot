@@ -7,10 +7,10 @@ import {
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CMOSBook from './components/chicagoComponents/CMOSBook';
-import CMOSJournal from './components/chicagoComponents/CMOSJournal';
-import CMOSWebsite from './components/chicagoComponents/CMOSWebsite';
-import CMOSLecture from './components/chicagoComponents/CMOSLecture';
+import ChicagoBook from './components/chicagoComponents/ChicagoBook';
+import ChicagoJournal from './components/chicagoComponents/ChicagoJournal';
+import ChicagoWebsite from './components/chicagoComponents/ChicagoWebsite';
+import ChicagoLecture from './components/chicagoComponents/ChicagoLecture';
 import NotFound from './components/404';
 import Resources from './components/Resources';
 import Contact from './components/Contact';
@@ -24,10 +24,10 @@ export default function App() {
       <Header />
       <Router>
         <Switch>
-          <Route path="/chicago-book" component={CMOSBook} />
-          <Route path="/chicago-journal" component={CMOSJournal} />
-          <Route path="/chicago-website" component={CMOSWebsite} />
-          <Route path="/chicago-lecture" component={CMOSLecture} />
+          <Route path="/chicago-book" component={ChicagoBook} />
+          <Route path="/chicago-journal" component={ChicagoJournal} />
+          <Route path="/chicago-website" component={ChicagoWebsite} />
+          <Route path="/chicago-lecture" component={ChicagoLecture} />
           <Route path="/resources" component={Resources} />
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
