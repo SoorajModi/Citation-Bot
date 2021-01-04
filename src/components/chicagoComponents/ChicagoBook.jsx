@@ -13,10 +13,9 @@ import Citation from '../formComponents/Citaton';
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoBook() {
-  // State variables
   const [authors, setAuthors] = useState([]);
   const [pages, setPages] = useState([]);
-  const [title, setTitle] = useState({ title: 'No title specified' });
+  const [title, setTitle] = useState({ title: '' });
   const [pub, setPub] = useState({ publisher: '' });
   const [pop, setPop] = useState({ placeOfPublication: '' });
   const [yop, setYop] = useState({ yearOfPublication: '' });
@@ -24,7 +23,7 @@ function ChicagoBook() {
 
   const generateCitation = () => {
     const book = CMOS.book({
-      title: title.title,
+      title: title.title || 'Must Specify Title',
       authorList: authors,
       publisher: pub.publisher,
       placeOfPublication: pop.placeOfPublication,

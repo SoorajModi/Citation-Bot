@@ -23,7 +23,7 @@ const Title = ({ title, setTitle, generateCitation }) => (
 );
 
 Title.defaultProps = {
-  title: { title: 'No Title Specified' },
+  title: { title: '' },
   setTitle: null,
   generateCitation: null,
 };

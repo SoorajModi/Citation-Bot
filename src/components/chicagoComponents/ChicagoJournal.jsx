@@ -16,7 +16,7 @@ const CMOS = require('chicagomanualofstyle');
 
 function ChicagoJournal() {
   const [authors, setAuthors] = useState([]);
-  const [title, setTitle] = useState({ title: 'No title specified' });
+  const [title, setTitle] = useState({ title: '' });
   const [pub, setPub] = useState({ publisher: '' });
   const [yop, setYop] = useState({ yearOfPublication: '' });
   const [vol, setVol] = useState({ volume: '' });
@@ -27,14 +27,14 @@ function ChicagoJournal() {
 
   const generateCitation = () => {
     const journal = CMOS.journal({
-      title: title.title,
+      title: title.title || 'Must Specify Title',
       authorList: authors,
       publisher: pub.publisher,
       yearOfPublication: yop.yearOfPublication,
       volume: vol.volume,
       issue: iss.issue,
       startRange: start.startRange,
-      endRange: end.endRange,
+      endRange: end.endRange || start.startRange,
     }, []);
 
     setCitation({ bibliography: journal.bibliography });
