@@ -9,13 +9,13 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 const Citation = ({ citation, generateCitation }) => (
   <>
-    <div className="text-center custom-btn">
-      <Button variant="primary" onClick={generateCitation} className="center-block">
-        Generate
-      </Button>
-    </div>
     <hr />
     <InputGroup className="mb-3">
+      <InputGroup.Prepend>
+        <Button variant="secondary" onClick={generateCitation} className="center-block">
+          Generate
+        </Button>
+      </InputGroup.Prepend>
       <Form.Control type="text" value={citation.bibliography} readOnly />
       <InputGroup.Append>
         <CopyToClipboard text={citation.bibliography}>
