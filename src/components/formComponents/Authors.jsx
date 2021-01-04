@@ -21,7 +21,7 @@ const onLastNameChange = (authors, index, e, generateCitation) => {
 const Authors = ({
   authors, setAuthors, generateCitation,
 }) => (
-  <div>
+  <>
     <Form.Label column sm="12">
       Authors
     </Form.Label>
@@ -67,7 +67,7 @@ const Authors = ({
         Reset Authors
       </Button>
     </div>
-  </div>
+  </>
 );
 
 Authors.defaultProps = {

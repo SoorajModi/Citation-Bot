@@ -10,14 +10,16 @@ const onTitleChange = (setTitle, e, generateCitation) => {
 };
 
 const Title = ({ title, setTitle, generateCitation }) => (
-  <Form.Group as={Row} controlId="inputTitle">
-    <Form.Label column sm="2">
-      Title
-    </Form.Label>
-    <Col sm="10">
-      <Form.Control type="text" value={title.title} onChange={(e) => onTitleChange(setTitle, e.target.value, generateCitation)} />
-    </Col>
-  </Form.Group>
+  <>
+    <Form.Group as={Row} controlId="inputTitle">
+      <Form.Label column sm="2">
+        Title
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" value={title.title} onChange={(e) => onTitleChange(setTitle, e.target.value, generateCitation)} />
+      </Col>
+    </Form.Group>
+  </>
 );
 
 Title.defaultProps = {

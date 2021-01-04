@@ -10,14 +10,16 @@ const onYopChange = (setYop, e, generateCitation) => {
 };
 
 const YearOfPublication = ({ yop, setYop, generateCitation }) => (
-  <Form.Group as={Row} controlId="inputYOP">
-    <Form.Label column sm="2">
-      Year of Publication
-    </Form.Label>
-    <Col sm="10">
-      <Form.Control type="text" value={yop.yearOfPublication} onChange={(e) => onYopChange(setYop, e.target.value, generateCitation)} />
-    </Col>
-  </Form.Group>
+  <>
+    <Form.Group as={Row} controlId="inputYOP">
+      <Form.Label column sm="2">
+        Year of Publication
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" value={yop.yearOfPublication} onChange={(e) => onYopChange(setYop, e.target.value, generateCitation)} />
+      </Col>
+    </Form.Group>
+  </>
 );
 
 YearOfPublication.defaultProps = {

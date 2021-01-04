@@ -22,7 +22,6 @@ function ChicagoBook() {
   const [yop, setYop] = useState({ yearOfPublication: '' });
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
-  // Function to update state
   const generateCitation = () => {
     const book = CMOS.book({
       title: title.title,
@@ -31,6 +30,7 @@ function ChicagoBook() {
       placeOfPublication: pop.placeOfPublication,
       yearOfPublication: yop.yearOfPublication,
     }, []);
+
     setCitation({ bibliography: book.bibliography });
   };
 
@@ -47,7 +47,7 @@ function ChicagoBook() {
               <YearOfPublication yop={yop} setYop={setYop} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
               <Pages pages={pages} setPages={setPages} />
-              <Citation bibliography={citation.bibliography} generateCitation={generateCitation} />
+              <Citation citation={citation} generateCitation={generateCitation} />
             </div>
           </Form>
         </Card>

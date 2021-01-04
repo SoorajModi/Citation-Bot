@@ -10,14 +10,16 @@ const onPopChange = (setPop, e, generateCitation) => {
 };
 
 const PlaceOfPublication = ({ pop, setPop, generateCitation }) => (
-  <Form.Group as={Row} controlId="inputPOP">
-    <Form.Label column sm="2">
-      Place of Publication
-    </Form.Label>
-    <Col sm="10">
-      <Form.Control type="text" value={pop.placeOfPublication} onChange={(e) => onPopChange(setPop, e.target.value, generateCitation)} />
-    </Col>
-  </Form.Group>
+  <>
+    <Form.Group as={Row} controlId="inputPOP">
+      <Form.Label column sm="2">
+        Place of Publication
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" value={pop.placeOfPublication} onChange={(e) => onPopChange(setPop, e.target.value, generateCitation)} />
+      </Col>
+    </Form.Group>
+  </>
 );
 
 PlaceOfPublication.defaultProps = {

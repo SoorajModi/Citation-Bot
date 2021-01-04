@@ -15,7 +15,7 @@ const populatePage = (pages, index, e) => {
 const Pages = ({
   pages, setPages,
 }) => (
-  <div>
+  <>
     <Form.Label column sm="12">
       Pages
     </Form.Label>
@@ -53,7 +53,7 @@ const Pages = ({
         Reset Pages
       </Button>
     </div>
-  </div>
+  </>
 );
 
 Pages.defaultProps = {
