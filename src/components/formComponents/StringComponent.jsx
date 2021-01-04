@@ -10,7 +10,7 @@ const onStringChange = (setStr, targetValue, generateCitation) => {
 };
 
 const StringComponent = ({
-  str, setStr, formLabel, generateCitation,
+  formLabel, str, setStr, generateCitation,
 }) => (
   <>
     <Form.Group as={Row}>
@@ -25,15 +25,15 @@ const StringComponent = ({
 );
 
 StringComponent.defaultProps = {
-  str: '',
   formLabel: 'Label',
+  str: '',
   setStr: null,
   generateCitation: null,
 };
 
 StringComponent.propTypes = {
-  str: PropTypes.string,
   formLabel: PropTypes.string,
+  str: PropTypes.string,
   setStr: PropTypes.func,
   generateCitation: PropTypes.func,
 };
