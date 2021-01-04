@@ -18,11 +18,12 @@ function ChicagoJournal() {
   const [issue, setIssue] = useState(emptyValue);
   const [startRange, setStartRange] = useState(emptyValue);
   const [endRange, setEndRange] = useState(emptyValue);
+  const [URL, setURL] = useState(emptyValue);
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
-    const journal = CMOS.journal({
-      title: title.value || 'Must Specify Title',
+    const journal = CMOS.eJournal({
+      title: title.value || 'Must specify Title',
       authorList: authors,
       publisher: publisher.value,
       yearOfPublication: yearOfPublication.value,
@@ -30,6 +31,7 @@ function ChicagoJournal() {
       issue: issue.value,
       startRange: startRange.value || '1',
       endRange: endRange.value || startRange.value || '1',
+      url: URL.value || 'Must specify URL',
     }, []);
 
     setCitation({ bibliography: journal.bibliography });
@@ -49,6 +51,7 @@ function ChicagoJournal() {
               <StringComponent formLabel="Issue" str={issue} setStr={setIssue} generateCitation={generateCitation} />
               <StringComponent formLabel="Start Range" str={startRange} setStr={setStartRange} generateCitation={generateCitation} />
               <StringComponent formLabel="End Range" str={endRange} setStr={setEndRange} generateCitation={generateCitation} />
+              <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
               <Citation citation={citation} generateCitation={generateCitation} />
             </div>

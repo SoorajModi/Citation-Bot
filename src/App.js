@@ -18,6 +18,8 @@ import Resources from './components/Resources';
 import Contact from './components/Contact';
 import About from './components/About';
 import Meta from './components/Meta';
+import ChicagoEBook from './components/chicagoComponents/ChicagoEBook';
+import ChicagoEJournal from './components/chicagoComponents/ChicagoEJournal';
 
 export default function App() {
   return (
@@ -27,7 +29,9 @@ export default function App() {
       <Router>
         <Switch>
           <Route path="/chicago-book" component={ChicagoBook} />
+          <Route path="/chicago-electronic-book" component={ChicagoEBook} />
           <Route path="/chicago-journal" component={ChicagoJournal} />
+          <Route path="/chicago-electronic-journal" component={ChicagoEJournal} />
           <Route path="/chicago-website" component={ChicagoWebsite} />
           <Route path="/chicago-lecture" component={ChicagoLecture} />
           <Route path="/resources" component={Resources} />

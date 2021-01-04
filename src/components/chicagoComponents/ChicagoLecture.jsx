@@ -8,12 +8,13 @@ import StringComponent from '../formComponents/StringComponent';
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoLecture() {
+  const emptyValue = { value: '' };
   const [profs, setProfs] = useState([]);
-  const [title, setTitle] = useState({ value: '' });
-  const [date, setDate] = useState({ value: '' });
-  const [university, setUniversity] = useState({ value: '' });
-  const [province, setProvince] = useState({ value: '' });
-  const [city, setCity] = useState({ value: '' });
+  const [title, setTitle] = useState(emptyValue);
+  const [date, setDate] = useState(emptyValue);
+  const [university, setUniversity] = useState(emptyValue);
+  const [province, setProvince] = useState(emptyValue);
+  const [city, setCity] = useState(emptyValue);
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {

@@ -12,7 +12,9 @@ function Header() {
           <Nav className="mr-auto">
             <NavDropdown title="Chicago" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="/chicago-book">Book</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-electronic-book">Electronic Book</NavDropdown.Item>
               <NavDropdown.Item href="/chicago-journal">Journal</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-electronic-journal">Electronic Journal</NavDropdown.Item>
               <NavDropdown.Item href="/chicago-website">Website</NavDropdown.Item>
               <NavDropdown.Item href="/chicago-lecture">Lecture</NavDropdown.Item>
             </NavDropdown>
