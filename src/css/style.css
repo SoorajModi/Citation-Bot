@@ -19,7 +19,8 @@ html {
 
 body {
     background: #ede4d9;
-    padding: 0;
+    padding-bottom: 5.0rem;
+    position: relative;
 }
 
 card {
