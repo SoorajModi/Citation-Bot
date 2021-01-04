@@ -1,33 +1,29 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import Title from '../formComponents/Title';
-import Publisher from '../formComponents/Publisher';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
-import YearOfPublication from '../formComponents/YearOfPublication';
-import CitationURL from '../formComponents/CitationURL';
-import SiteName from '../formComponents/SiteName';
+import StringComponent from '../formComponents/StringComponent';
 
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoWebsite() {
   const [authors, setAuthors] = useState([]);
-  const [title, setTitle] = useState({ title: '' });
-  const [pub, setPub] = useState({ publisher: '' });
-  const [date, setDate] = useState({ yearOfPublication: '' });
-  const [URL, setURL] = useState({ url: '' });
-  const [siteName, setSiteName] = useState({ name: '' });
+  const [title, setTitle] = useState({ value: '' });
+  const [publisher, setPublisher] = useState({ value: '' });
+  const [date, setDate] = useState({ value: '' });
+  const [URL, setURL] = useState({ value: '' });
+  const [siteName, setSiteName] = useState({ value: '' });
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
     const journal = CMOS.webpage({
-      title: title.title || 'Must Specify Title',
+      title: title.value || 'Must Specify Title',
       authorList: authors,
-      publisher: pub.publisher,
-      date: date.yearOfPublication || new Date().getFullYear(),
-      nameOfSite: siteName.name || 'Must specify name of site',
-      url: URL.url || 'Must specify url',
+      publisher: publisher.value,
+      date: date.value || new Date().getFullYear(),
+      nameOfSite: siteName.value || 'Must specify name of site',
+      url: URL.value || 'Must specify url',
     }, []);
 
     setCitation({ bibliography: journal.bibliography });
@@ -40,11 +36,11 @@ function ChicagoWebsite() {
         <Card>
           <Form>
             <div className="container form-start">
-              <Title title={title} setTitle={setTitle} generateCitation={generateCitation} />
-              <Publisher pub={pub} setPub={setPub} generateCitation={generateCitation} />
-              <SiteName siteName={siteName} setSiteName={setSiteName} generateCitation={generateCitation} />
-              <YearOfPublication yop={date} setYop={setDate} generateCitation={generateCitation} />
-              <CitationURL url={URL} setURL={setURL} generateCitation={generateCitation} />
+              <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
+              <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
+              <StringComponent formLabel="Site Name" str={siteName} setStr={setSiteName} generateCitation={generateCitation} />
+              <StringComponent formLabel="Date" str={date} setStr={setDate} generateCitation={generateCitation} />
+              <StringComponent formLabel="URL" str={URL} setStr={setURL} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
               <Citation citation={citation} generateCitation={generateCitation} />
             </div>

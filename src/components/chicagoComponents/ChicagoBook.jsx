@@ -2,32 +2,29 @@ import React, { useState } from 'react';
 import '../../css/subpage.css';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import PlaceOfPublication from '../formComponents/PlaceOfPublication';
-import YearOfPublication from '../formComponents/YearOfPublication';
-import Publisher from '../formComponents/Publisher';
-import Title from '../formComponents/Title';
 import Authors from '../formComponents/Authors';
 import Pages from '../formComponents/Pages';
 import Citation from '../formComponents/Citaton';
+import StringComponent from '../formComponents/StringComponent';
 
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoBook() {
   const [authors, setAuthors] = useState([]);
   const [pages, setPages] = useState([]);
-  const [title, setTitle] = useState({ title: '' });
-  const [pub, setPub] = useState({ publisher: '' });
-  const [pop, setPop] = useState({ placeOfPublication: '' });
-  const [yop, setYop] = useState({ yearOfPublication: '' });
+  const [title, setTitle] = useState({ value: '' });
+  const [publisher, setPublisher] = useState({ value: '' });
+  const [placeOfPublication, setPlaceOfPublication] = useState({ value: '' });
+  const [yearOfPublication, setYearOfPublication] = useState({ value: '' });
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
     const book = CMOS.book({
-      title: title.title || 'Must Specify Title',
+      title: title.value || 'Must Specify Title',
       authorList: authors,
-      publisher: pub.publisher,
-      placeOfPublication: pop.placeOfPublication,
-      yearOfPublication: yop.yearOfPublication,
+      publisher: publisher.value,
+      placeOfPublication: placeOfPublication.value,
+      yearOfPublication: yearOfPublication.value,
     }, []);
 
     setCitation({ bibliography: book.bibliography });
@@ -40,10 +37,10 @@ function ChicagoBook() {
         <Card>
           <Form>
             <div className="container form-start">
-              <Title title={title} setTitle={setTitle} generateCitation={generateCitation} />
-              <Publisher pub={pub} setPub={setPub} generateCitation={generateCitation} />
-              <PlaceOfPublication pop={pop} setPop={setPop} generateCitation={generateCitation} />
-              <YearOfPublication yop={yop} setYop={setYop} generateCitation={generateCitation} />
+              <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
+              <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
+              <StringComponent formLabel="Place of Publication" str={placeOfPublication} setStr={setPlaceOfPublication} generateCitation={generateCitation} />
+              <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
               <Pages pages={pages} setPages={setPages} />
               <Citation citation={citation} generateCitation={generateCitation} />
