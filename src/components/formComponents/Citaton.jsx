@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 const Citation = ({ citation, generateCitation }) => (
   <>
@@ -14,14 +15,16 @@ const Citation = ({ citation, generateCitation }) => (
       </Button>
     </div>
     <hr />
-    <Form.Group controlId="Generate Citation">
+    <InputGroup className="mb-3">
       <Form.Control type="text" value={citation.bibliography} readOnly />
-      <CopyToClipboard text={citation.bibliography}>
-        <Button variant="secondary">
-          <FontAwesomeIcon icon={faClipboard} />
-        </Button>
-      </CopyToClipboard>
-    </Form.Group>
+      <InputGroup.Append>
+        <CopyToClipboard text={citation.bibliography}>
+          <Button variant="secondary">
+            <FontAwesomeIcon icon={faClipboard} />
+          </Button>
+        </CopyToClipboard>
+      </InputGroup.Append>
+    </InputGroup>
   </>
 );
 
