@@ -16,3 +16,19 @@
     padding-top: 2.5rem;
     padding-bottom: 1.0rem;
 }
+
+.center-element {
+    text-align: center;
+    vertical-align: center;
+    /*padding-right: 5rem;*/
+    /*padding-left: 5rem;*/
+    /*padding-top: 2.5%;*/
+}
+
+.pad-element-bottom {
+    padding-bottom: 1.0rem;
+}
+
+.foo {
+    text-align: left;
+}

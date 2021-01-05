@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import '../../css/subpage.css';
 
 const emptyAuthor = { first: '', last: '' };
 
@@ -18,55 +17,58 @@ const onLastNameChange = (authors, index, e, generateCitation) => {
   generateCitation();
 };
 
+const handleRemoveAuthor = (authors, index, setAuthors, generateCitation) => {
+  const temp = [...authors];
+
+  temp.splice(index, 1);
+  setAuthors(temp);
+
+  generateCitation();
+};
+
 const Authors = ({
   authors, setAuthors, generateCitation,
 }) => (
   <>
-    <Form.Label column sm="12">
-      Authors
-    </Form.Label>
+    <Form inline className="pad-element-bottom">
+      <Form.Label column sm="2">
+        Authors
+      </Form.Label>
+      <Button variant="secondary" onClick={() => setAuthors([])}>
+        Reset
+      </Button>
+      &nbsp;
+      <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
+        Remove
+      </Button>
+      &nbsp;
+      <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...emptyAuthor }]); }}>
+        Add
+      </Button>
+    </Form>
     {
-        authors.map((val, idx) => {
-          const firstId = `first-${idx}`;
-          const lastId = `last-${idx}`;
-
-          return (
-            <div className="container">
-              <Card>
-                <Form>
-                  <div className="container form-start">
-                    <Form.Group as={Row} controlId={firstId}>
-                      <Form.Label column sm="2">
-                        First Name
-                      </Form.Label>
-                      <Col sm="10">
-                        <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstNameChange(authors, idx, e.target.value, generateCitation)} />
-                      </Col>
-                    </Form.Group>
-                    <Form.Group as={Row} controlId={lastId}>
-                      <Form.Label column sm="2">
-                        Last Name
-                      </Form.Label>
-                      <Col sm="10">
-                        <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastNameChange(authors, idx, e.target.value, generateCitation)} />
-                      </Col>
-                    </Form.Group>
-                  </div>
-                </Form>
-              </Card>
-            </div>
-          );
-        })
+      authors.map((val, idx) => (
+        <div className="container pad-element-bottom">
+          <Form>
+            <Form.Row>
+              <Form.Label column lg={2} className="center-element">
+                First Name
+              </Form.Label>
+              <Col>
+                <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstNameChange(authors, idx, e.target.value, generateCitation)} />
+              </Col>
+              <Form.Label column lg={2} className="center-element">
+                Last Name
+              </Form.Label>
+              <Col>
+                <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastNameChange(authors, idx, e.target.value, generateCitation)} />
+              </Col>
+              {/* <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, idx, setAuthors, generateCitation)}>Remove</Button> */}
+            </Form.Row>
+          </Form>
+        </div>
+      ))
     }
-    <div className="text-center custom-btn">
-      <Button variant="primary" onClick={() => setAuthors([...authors, { ...emptyAuthor }])}>
-        Add Author
-      </Button>
-        &nbsp;&nbsp;&nbsp;
-      <Button variant="primary" onClick={() => setAuthors([])}>
-        Reset Authors
-      </Button>
-    </div>
   </>
 );
 
