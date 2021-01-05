@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import '../../css/subpage.css';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const emptyAuthor = { first: '', last: '' };
 
@@ -34,17 +35,17 @@ const Authors = ({
       <Form.Label column sm="2">
         Authors
       </Form.Label>
-      <Button variant="secondary" onClick={() => setAuthors([])}>
-        Reset
-      </Button>
-      &nbsp;
-      <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
-        Remove
-      </Button>
-      &nbsp;
-      <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...emptyAuthor }]); }}>
-        Add
-      </Button>
+      <ButtonGroup className="mb-2">
+        <Button variant="secondary" onClick={() => setAuthors([])}>
+          Reset
+        </Button>
+        <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
+          Remove
+        </Button>
+        <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...emptyAuthor }]); }}>
+          Add
+        </Button>
+      </ButtonGroup>
     </Form>
     {
       authors.map((val, idx) => (

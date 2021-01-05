@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const emptyPage = { page: '' };
 
@@ -24,17 +25,17 @@ const Pages = ({
       <Form.Label column sm="2">
         Pages
       </Form.Label>
-      <Button variant="secondary" onClick={() => setPages([])}>
-        Reset
-      </Button>
-          &nbsp;
-      <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
-        Remove
-      </Button>
-          &nbsp;
-      <Button variant="secondary" onClick={() => setPages([...pages, { ...emptyPage }])}>
-        Add
-      </Button>
+      <ButtonGroup className="mb-2">
+        <Button variant="secondary" onClick={() => setPages([])}>
+          Reset
+        </Button>
+        <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
+          Remove
+        </Button>
+        <Button variant="secondary" onClick={() => setPages([...pages, { ...emptyPage }])}>
+          Add
+        </Button>
+      </ButtonGroup>
     </Form>
     {
       pages.map((val, idx) => (
