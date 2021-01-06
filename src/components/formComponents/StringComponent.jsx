@@ -26,14 +26,16 @@ const StringComponent = ({
 
 StringComponent.defaultProps = {
   formLabel: 'Label',
-  str: '',
+  str: { value: '' },
   setStr: null,
   generateCitation: null,
 };
 
 StringComponent.propTypes = {
   formLabel: PropTypes.string,
-  str: PropTypes.string,
+  str: PropTypes.shape({
+    value: PropTypes.string,
+  }),
   setStr: PropTypes.func,
   generateCitation: PropTypes.func,
 };
