@@ -4,17 +4,19 @@ import Form from 'react-bootstrap/Form';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
+import Pages from '../formComponents/Pages';
 
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoLecture() {
   const emptyValue = { value: '' };
-  const [profs, setProfs] = useState([]);
   const [title, setTitle] = useState(emptyValue);
   const [date, setDate] = useState(emptyValue);
   const [university, setUniversity] = useState(emptyValue);
   const [province, setProvince] = useState(emptyValue);
   const [city, setCity] = useState(emptyValue);
+  const [pages, setPages] = useState([]);
+  const [profs, setProfs] = useState([]);
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
@@ -27,7 +29,7 @@ function ChicagoLecture() {
       city: city.value,
     }, []);
 
-    setCitation({ bibliography: lecture.bibliography });
+    setCitation({ bibliography: lecture.bibliography, pages: lecture.pages });
   };
 
   return (
@@ -43,6 +45,7 @@ function ChicagoLecture() {
               <StringComponent formLabel="Province" str={province} setStr={setProvince} generateCitation={generateCitation} />
               <StringComponent formLabel="City" str={city} setStr={setCity} generateCitation={generateCitation} />
               <Authors authors={profs} setAuthors={setProfs} generateCitation={generateCitation} />
+              <Pages pages={pages} setPages={setPages} />
               <Citation citation={citation} generateCitation={generateCitation} />
             </div>
           </Form>

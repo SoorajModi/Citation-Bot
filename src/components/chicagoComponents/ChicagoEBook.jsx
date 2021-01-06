@@ -18,7 +18,7 @@ function ChicagoBook() {
   const [placeOfPublication, setPlaceOfPublication] = useState(emptyValue);
   const [yearOfPublication, setYearOfPublication] = useState(emptyValue);
   const [URL, setURL] = useState(emptyValue);
-  const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
+  const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
   const generateCitation = () => {
     const book = CMOS.eBook({
@@ -30,7 +30,7 @@ function ChicagoBook() {
       url: URL.value || 'Must specify URL',
     }, []);
 
-    setCitation({ bibliography: book.bibliography });
+    setCitation({ bibliography: book.bibliography, pages: book.pages });
   };
 
   return (

@@ -5,12 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
+import Pages from '../formComponents/Pages';
 
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoJournal() {
   const emptyValue = { value: '' };
-  const [authors, setAuthors] = useState([]);
   const [title, setTitle] = useState(emptyValue);
   const [publisher, setPublisher] = useState(emptyValue);
   const [yearOfPublication, setYearOfPublication] = useState(emptyValue);
@@ -18,6 +18,8 @@ function ChicagoJournal() {
   const [issue, setIssue] = useState(emptyValue);
   const [startRange, setStartRange] = useState(emptyValue);
   const [endRange, setEndRange] = useState(emptyValue);
+  const [authors, setAuthors] = useState([]);
+  const [pages, setPages] = useState([]);
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
@@ -32,7 +34,7 @@ function ChicagoJournal() {
       endRange: endRange.value || startRange.value || '1',
     }, []);
 
-    setCitation({ bibliography: journal.bibliography });
+    setCitation({ bibliography: journal.bibliography, pages: journal.pages });
   };
 
   return (
@@ -50,6 +52,7 @@ function ChicagoJournal() {
               <StringComponent formLabel="Start Range" str={startRange} setStr={setStartRange} generateCitation={generateCitation} />
               <StringComponent formLabel="End Range" str={endRange} setStr={setEndRange} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+              <Pages pages={pages} setPages={setPages} />
               <Citation citation={citation} generateCitation={generateCitation} />
             </div>
           </Form>

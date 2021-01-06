@@ -8,8 +8,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const uniqid = require('uniqid');
 
-const emptyAuthor = { first: '', last: '' };
-
 const onFirstNameChange = (authors, index, e, generateCitation) => {
   authors[index].first = e;
   generateCitation();
@@ -44,14 +42,14 @@ const Authors = ({
         <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...emptyAuthor }]); }}>
+        <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...{ first: '', last: '', uniqid: uniqid() } }]); }}>
           Add
         </Button>
       </ButtonGroup>
     </Form>
     {
       authors.map((val, idx) => (
-        <div className="container pad-element-bottom" key={uniqid()}>
+        <div className="container pad-element-bottom" key={val.uniqid}>
           <Form>
             <Form.Row>
               <Form.Label column lg={2} className="center-element">
@@ -76,7 +74,7 @@ const Authors = ({
 );
 
 Authors.defaultProps = {
-  authors: [{ first: '', last: '' }],
+  authors: [{ first: '', last: '', uniqid: uniqid() }],
   setAuthors: null,
   generateCitation: null,
 };
@@ -86,6 +84,7 @@ Authors.propTypes = {
     PropTypes.shape({
       first: PropTypes.string,
       last: PropTypes.string,
+      uniqid: PropTypes.string,
     }),
   ),
   setAuthors: PropTypes.func,

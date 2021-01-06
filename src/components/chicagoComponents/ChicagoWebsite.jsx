@@ -4,21 +4,23 @@ import Form from 'react-bootstrap/Form';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
+import Pages from '../formComponents/Pages';
 
 const CMOS = require('chicagomanualofstyle');
 
 function ChicagoWebsite() {
   const emptyValue = { value: '' };
-  const [authors, setAuthors] = useState([]);
   const [title, setTitle] = useState(emptyValue);
   const [publisher, setPublisher] = useState(emptyValue);
   const [date, setDate] = useState(emptyValue);
   const [URL, setURL] = useState(emptyValue);
   const [siteName, setSiteName] = useState(emptyValue);
+  const [authors, setAuthors] = useState([]);
+  const [pages, setPages] = useState([]);
   const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
 
   const generateCitation = () => {
-    const journal = CMOS.webpage({
+    const webpage = CMOS.webpage({
       title: title.value || 'Must Specify Title',
       authorList: authors,
       publisher: publisher.value,
@@ -27,7 +29,7 @@ function ChicagoWebsite() {
       url: URL.value || 'Must specify url',
     }, []);
 
-    setCitation({ bibliography: journal.bibliography });
+    setCitation({ bibliography: webpage.bibliography, notes: webpage.pages });
   };
 
   return (
@@ -43,6 +45,7 @@ function ChicagoWebsite() {
               <StringComponent formLabel="Date" str={date} setStr={setDate} generateCitation={generateCitation} />
               <StringComponent formLabel="URL" str={URL} setStr={setURL} generateCitation={generateCitation} />
               <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+              <Pages pages={pages} setPages={setPages} />
               <Citation citation={citation} generateCitation={generateCitation} />
             </div>
           </Form>
