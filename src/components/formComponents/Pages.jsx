@@ -8,7 +8,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 const uniqid = require('uniqid');
 
 const populatePage = (pages, index, e) => {
-  pages[index] = e;
+  pages[index].page = e;
 };
 
 const handleRemovePage = (pages, index, setPages) => {
@@ -32,21 +32,21 @@ const Pages = ({
         <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => setPages([...pages, ''])}>
+        <Button variant="secondary" onClick={() => setPages([...pages, { page: '', uniqueID: uniqid() }])}>
           Add
         </Button>
       </ButtonGroup>
     </Form>
     {
       pages.map((val, idx) => (
-        <div className="container pad-element-bottom" key={uniqid()}>
+        <div className="container pad-element-bottom" key={val.uniqueID}>
           <Form>
             <Form.Row>
               <Form.Label column lg={2} className="center-element">
                 Page
               </Form.Label>
               <Col>
-                <Form.Control type="text" val={pages[idx].first} onChange={(e) => populatePage(pages, idx, e.target.value)} />
+                <Form.Control type="text" val={pages[idx].page} onChange={(e) => populatePage(pages, idx, e.target.value)} />
               </Col>
               {/* <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, idx, setAuthors, generateCitation)}>Remove</Button> */}
             </Form.Row>
@@ -58,13 +58,16 @@ const Pages = ({
 );
 
 Pages.defaultProps = {
-  pages: [],
+  pages: [{ page: '', uniqueID: uniqid() }],
   setPages: null,
 };
 
 Pages.propTypes = {
   pages: PropTypes.arrayOf(
-    PropTypes.string,
+    PropTypes.shape({
+      page: PropTypes.string,
+      uniqueID: PropTypes.string,
+    }),
   ),
   setPages: PropTypes.func,
 };

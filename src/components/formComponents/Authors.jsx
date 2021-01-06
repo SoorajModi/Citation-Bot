@@ -49,7 +49,7 @@ const Authors = ({
     </Form>
     {
       authors.map((val, idx) => (
-        <div className="container pad-element-bottom" key={val.uniqid}>
+        <div className="container pad-element-bottom" key={val.uniqueID}>
           <Form>
             <Form.Row>
               <Form.Label column lg={2} className="center-element">
@@ -74,7 +74,7 @@ const Authors = ({
 );
 
 Authors.defaultProps = {
-  authors: [{ first: '', last: '', uniqid: uniqid() }],
+  authors: [{ first: '', last: '', uniqID: uniqid() }],
   setAuthors: null,
   generateCitation: null,
 };
@@ -84,7 +84,7 @@ Authors.propTypes = {
     PropTypes.shape({
       first: PropTypes.string,
       last: PropTypes.string,
-      uniqid: PropTypes.string,
+      uniqID: PropTypes.string,
     }),
   ),
   setAuthors: PropTypes.func,
