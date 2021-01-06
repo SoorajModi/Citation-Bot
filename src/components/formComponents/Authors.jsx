@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import '../../css/subpage.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
+const uniqid = require('uniqid');
+
 const emptyAuthor = { first: '', last: '' };
 
 const onFirstNameChange = (authors, index, e, generateCitation) => {
@@ -49,7 +51,7 @@ const Authors = ({
     </Form>
     {
       authors.map((val, idx) => (
-        <div className="container pad-element-bottom">
+        <div className="container pad-element-bottom" key={uniqid()}>
           <Form>
             <Form.Row>
               <Form.Label column lg={2} className="center-element">

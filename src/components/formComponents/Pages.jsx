@@ -5,10 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-const emptyPage = { page: '' };
+const uniqid = require('uniqid');
 
 const populatePage = (pages, index, e) => {
-  pages[index].page = e;
+  pages[index] = e;
 };
 
 const handleRemovePage = (pages, index, setPages) => {
@@ -32,14 +32,14 @@ const Pages = ({
         <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => setPages([...pages, { ...emptyPage }])}>
+        <Button variant="secondary" onClick={() => setPages([...pages, ''])}>
           Add
         </Button>
       </ButtonGroup>
     </Form>
     {
       pages.map((val, idx) => (
-        <div className="container pad-element-bottom">
+        <div className="container pad-element-bottom" key={uniqid()}>
           <Form>
             <Form.Row>
               <Form.Label column lg={2} className="center-element">

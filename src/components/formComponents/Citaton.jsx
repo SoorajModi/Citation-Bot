@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+const uniqid = require('uniqid');
+
 const Citation = ({ citation, generateCitation }) => (
   <>
     <hr />
@@ -25,6 +27,25 @@ const Citation = ({ citation, generateCitation }) => (
         </CopyToClipboard>
       </InputGroup.Append>
     </InputGroup>
+    {
+      citation.notes.map((val, idx) => (
+        <InputGroup className="mb-3" key={uniqid()}>
+          <InputGroup.Prepend>
+            <Button variant="secondary" onClick={generateCitation} className="center-block">
+              Generate
+            </Button>
+          </InputGroup.Prepend>
+          <Form.Control type="text" value={citation.notes[idx]} readOnly />
+          <InputGroup.Append>
+            <CopyToClipboard text={citation.notes[idx]}>
+              <Button variant="secondary">
+                <FontAwesomeIcon icon={faClipboard} />
+              </Button>
+            </CopyToClipboard>
+          </InputGroup.Append>
+        </InputGroup>
+      ))
+    }
   </>
 );
 
