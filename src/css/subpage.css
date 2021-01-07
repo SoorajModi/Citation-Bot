@@ -32,3 +32,7 @@
 .foo {
     text-align: left;
 }
+
+.about-list ul {
+    padding-left: 2.0rem;
+}

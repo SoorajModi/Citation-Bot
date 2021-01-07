@@ -5,8 +5,7 @@ function Footer() {
   return (
     <footer>
       <p><a href="/about">About</a></p>
-      <p><a href="/contact">Contact</a></p>
-      <p><a href="https://github.com/SoorajModi/Citation-Manager">Code</a></p>
+      <p><a href="https://github.com/SoorajModi/Citation-Manager" target="_blank" rel="noopener noreferrer">Code</a></p>
     </footer>
   );
 }
