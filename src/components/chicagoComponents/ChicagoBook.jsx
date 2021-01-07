@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import '../../css/subpage.css';
 import Card from 'react-bootstrap/Card';
 import Authors from '../formComponents/Authors';
-import Pages from '../formComponents/Pages';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
+import Pages from '../formComponents/Pages';
 
 const CMOS = require('chicagomanualofstyle');
 
@@ -18,19 +18,24 @@ function ChicagoBook() {
   const [pages, setPages] = useState([]);
   const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
-  const generateCitation = () => {
-    console.log(pages);
-    console.log(authors);
+  const convertToValidStringArray = (toConvert) => {
+    const newArr = [];
 
+    toConvert.forEach((page) => {
+      if (page.page !== '') newArr.push(page.page);
+    });
+
+    return newArr;
+  };
+
+  const generateCitation = () => {
     const book = CMOS.book({
       title: title.value || 'Must Specify Title',
       authorList: authors,
       publisher: publisher.value,
       placeOfPublication: placeOfPublication.value,
       yearOfPublication: yearOfPublication.value,
-    }, [{ page: '' }, { page: '10' }]);
-
-    console.log(book);
+    }, convertToValidStringArray(pages));
 
     setCitation({ bibliography: book.bibliography, notes: book.notes });
   };
