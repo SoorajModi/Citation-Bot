@@ -42,7 +42,7 @@ const Authors = ({
         <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => { setAuthors([...authors, { ...{ first: '', last: '', uniqid: uniqid() } }]); }}>
+        <Button variant="secondary" onClick={() => { setAuthors([...authors, { first: '', last: '', uniqueID: uniqid() }]); }}>
           Add
         </Button>
       </ButtonGroup>
@@ -74,7 +74,7 @@ const Authors = ({
 );
 
 Authors.defaultProps = {
-  authors: [{ first: '', last: '', uniqID: uniqid() }],
+  authors: [],
   setAuthors: null,
   generateCitation: null,
 };
@@ -84,7 +84,7 @@ Authors.propTypes = {
     PropTypes.shape({
       first: PropTypes.string,
       last: PropTypes.string,
-      uniqID: PropTypes.string,
+      uniqueID: PropTypes.string,
     }),
   ),
   setAuthors: PropTypes.func,

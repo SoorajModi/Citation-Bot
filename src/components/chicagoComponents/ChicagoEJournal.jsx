@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/subpage.css';
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
@@ -21,7 +20,7 @@ function ChicagoJournal() {
   const [URL, setURL] = useState(emptyValue);
   const [authors, setAuthors] = useState([]);
   const [pages, setPages] = useState([]);
-  const [citation, setCitation] = useState({ bibliography: '', notes: [''] });
+  const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
   const generateCitation = () => {
     const journal = CMOS.eJournal({
@@ -34,31 +33,29 @@ function ChicagoJournal() {
       startRange: startRange.value || '1',
       endRange: endRange.value || startRange.value || '1',
       url: URL.value || 'Must specify URL',
-    }, []);
+    }, pages);
 
-    setCitation({ bibliography: journal.bibliography });
+    setCitation({ bibliography: journal.bibliography, notes: journal.notes });
   };
 
   return (
     <div className="container">
-      <h1 className="subpage-heading">Chicago Style Journal Citation</h1>
+      <h1 className="subpage-heading">Chicago Style Electronic Journal Citation</h1>
       <div className="data-entry">
         <Card>
-          <Form>
-            <div className="container form-start">
-              <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
-              <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
-              <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
-              <StringComponent formLabel="Volume" str={volume} setStr={setVolume} generateCitation={generateCitation} />
-              <StringComponent formLabel="Issue" str={issue} setStr={setIssue} generateCitation={generateCitation} />
-              <StringComponent formLabel="Start Range" str={startRange} setStr={setStartRange} generateCitation={generateCitation} />
-              <StringComponent formLabel="End Range" str={endRange} setStr={setEndRange} generateCitation={generateCitation} />
-              <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
-              <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
-              <Pages pages={pages} setPages={setPages} />
-              <Citation citation={citation} generateCitation={generateCitation} />
-            </div>
-          </Form>
+          <div className="container form-start">
+            <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
+            <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
+            <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
+            <StringComponent formLabel="Volume" str={volume} setStr={setVolume} generateCitation={generateCitation} />
+            <StringComponent formLabel="Issue" str={issue} setStr={setIssue} generateCitation={generateCitation} />
+            <StringComponent formLabel="Start Range" str={startRange} setStr={setStartRange} generateCitation={generateCitation} />
+            <StringComponent formLabel="End Range" str={endRange} setStr={setEndRange} generateCitation={generateCitation} />
+            <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
+            <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+            <Pages pages={pages} setPages={setPages} />
+            <Citation citation={citation} generateCitation={generateCitation} />
+          </div>
         </Card>
       </div>
     </div>

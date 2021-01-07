@@ -19,13 +19,18 @@ function ChicagoBook() {
   const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
   const generateCitation = () => {
+    console.log(pages);
+    console.log(authors);
+
     const book = CMOS.book({
       title: title.value || 'Must Specify Title',
       authorList: authors,
       publisher: publisher.value,
       placeOfPublication: placeOfPublication.value,
       yearOfPublication: yearOfPublication.value,
-    }, pages);
+    }, [{ page: '' }, { page: '10' }]);
+
+    console.log(book);
 
     setCitation({ bibliography: book.bibliography, notes: book.notes });
   };

@@ -32,7 +32,7 @@ const Pages = ({
         <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => setPages([...pages, { page: '', uniqueID: uniqid() }])}>
+        <Button variant="secondary" onClick={() => { setPages([...pages, { page: '', uniqueID: uniqid() }]); }}>
           Add
         </Button>
       </ButtonGroup>
@@ -58,7 +58,7 @@ const Pages = ({
 );
 
 Pages.defaultProps = {
-  pages: [{ page: '', uniqueID: uniqid() }],
+  pages: [],
   setPages: null,
 };
 
