@@ -8,13 +8,18 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const uniqid = require('uniqid');
 
-const onFirstNameChange = (authors, index, e, generateCitation) => {
-  authors[index].first = e;
+const onFirstNameChange = (author, newFirstName, generateCitation) => {
+  author.first = newFirstName;
   generateCitation();
 };
 
-const onLastNameChange = (authors, index, e, generateCitation) => {
-  authors[index].last = e;
+const onLastNameChange = (author, newLastName, generateCitation) => {
+  author.last = newLastName;
+  generateCitation();
+};
+
+const handleResetAuthors = (setAuthors, generateCitation) => {
+  setAuthors([]);
   generateCitation();
 };
 
@@ -27,6 +32,10 @@ const handleRemoveAuthor = (authors, index, setAuthors, generateCitation) => {
   generateCitation();
 };
 
+const handleAddAuthor = (authors, setAuthors) => {
+  setAuthors([...authors, { first: '', last: '', uniqueID: uniqid() }]);
+};
+
 const Authors = ({
   authors, setAuthors, generateCitation,
 }) => (
@@ -36,13 +45,13 @@ const Authors = ({
         Authors
       </Form.Label>
       <ButtonGroup className="mb-2">
-        <Button variant="secondary" onClick={() => setAuthors([])}>
+        <Button variant="secondary" onClick={() => handleResetAuthors(setAuthors, generateCitation)}>
           Reset
         </Button>
         <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, authors.length - 1, setAuthors, generateCitation)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => { setAuthors([...authors, { first: '', last: '', uniqueID: uniqid() }]); }}>
+        <Button variant="secondary" onClick={() => handleAddAuthor(authors, setAuthors)}>
           Add
         </Button>
       </ButtonGroup>
@@ -56,15 +65,14 @@ const Authors = ({
                 First Name
               </Form.Label>
               <Col>
-                <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstNameChange(authors, idx, e.target.value, generateCitation)} />
+                <Form.Control type="text" val={authors[idx].first} onChange={(e) => onFirstNameChange(authors[idx], e.target.value, generateCitation)} />
               </Col>
               <Form.Label column lg={2} className="center-element">
                 Last Name
               </Form.Label>
               <Col>
-                <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastNameChange(authors, idx, e.target.value, generateCitation)} />
+                <Form.Control type="text" val={authors[idx].last} onChange={(e) => onLastNameChange(authors[idx], e.target.value, generateCitation)} />
               </Col>
-              {/* <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, idx, setAuthors, generateCitation)}>Remove</Button> */}
             </Form.Row>
           </Form>
         </div>

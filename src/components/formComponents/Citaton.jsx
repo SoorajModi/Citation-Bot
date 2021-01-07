@@ -30,11 +30,6 @@ const Citation = ({ citation, generateCitation }) => (
     {
       citation.notes.map((val, idx) => (
         <InputGroup className="mb-3" key={uniqid()}>
-          <InputGroup.Prepend>
-            <Button variant="secondary" onClick={generateCitation} className="center-block">
-              Generate
-            </Button>
-          </InputGroup.Prepend>
           <Form.Control type="text" value={citation.notes[idx]} readOnly />
           <InputGroup.Append>
             <CopyToClipboard text={citation.notes[idx]}>

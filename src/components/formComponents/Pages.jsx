@@ -7,8 +7,9 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const uniqid = require('uniqid');
 
-const populatePage = (pages, index, e) => {
-  pages[index].page = e;
+const populatePage = (page, newPage, generateCitation) => {
+  page.page = newPage;
+  generateCitation();
 };
 
 const handleRemovePage = (pages, index, setPages) => {
@@ -17,8 +18,17 @@ const handleRemovePage = (pages, index, setPages) => {
   setPages(temp);
 };
 
+const handleResetPages = (setPages, generateCitation) => {
+  setPages([]);
+  generateCitation();
+};
+
+const handleAddPage = (pages, setPages) => {
+  setPages([...pages, { page: '', uniqueID: uniqid() }]);
+};
+
 const Pages = ({
-  pages, setPages,
+  pages, setPages, generateCitation,
 }) => (
   <>
     <Form inline className="pad-element-bottom">
@@ -26,13 +36,13 @@ const Pages = ({
         Pages
       </Form.Label>
       <ButtonGroup className="mb-2">
-        <Button variant="secondary" onClick={() => setPages([])}>
+        <Button variant="secondary" onClick={() => handleResetPages(setPages, generateCitation)}>
           Reset
         </Button>
         <Button variant="secondary" onClick={() => handleRemovePage(pages, pages.length - 1, setPages)}>
           Remove
         </Button>
-        <Button variant="secondary" onClick={() => { setPages([...pages, { page: '', uniqueID: uniqid() }]); }}>
+        <Button variant="secondary" onClick={() => handleAddPage(pages, setPages)}>
           Add
         </Button>
       </ButtonGroup>
@@ -46,9 +56,8 @@ const Pages = ({
                 Page
               </Form.Label>
               <Col>
-                <Form.Control type="text" val={pages[idx].page} onChange={(e) => populatePage(pages, idx, e.target.value)} />
+                <Form.Control type="text" val={pages[idx].page} onChange={(e) => populatePage(pages[idx], e.target.value, generateCitation)} />
               </Col>
-              {/* <Button variant="secondary" onClick={() => handleRemoveAuthor(authors, idx, setAuthors, generateCitation)}>Remove</Button> */}
             </Form.Row>
           </Form>
         </div>
@@ -60,6 +69,7 @@ const Pages = ({
 Pages.defaultProps = {
   pages: [],
   setPages: null,
+  generateCitation: null,
 };
 
 Pages.propTypes = {
@@ -70,6 +80,7 @@ Pages.propTypes = {
     }),
   ),
   setPages: PropTypes.func,
+  generateCitation: PropTypes.func,
 };
 
 export default Pages;

@@ -18,6 +18,7 @@ function ChicagoBook() {
   const [pages, setPages] = useState([]);
   const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
+  // Temporary fix because I cant figure out the bug when using an object instead of a string array
   const convertToValidStringArray = (toConvert) => {
     const newArr = [];
 
@@ -51,7 +52,7 @@ function ChicagoBook() {
             <StringComponent formLabel="Place of Publication" str={placeOfPublication} setStr={setPlaceOfPublication} generateCitation={generateCitation} />
             <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
             <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
-            <Pages pages={pages} setPages={setPages} />
+            <Pages pages={pages} setPages={setPages} generateCitation={generateCitation} />
             <Citation citation={citation} generateCitation={generateCitation} />
           </div>
         </Card>

@@ -53,7 +53,7 @@ function ChicagoJournal() {
             <StringComponent formLabel="End Range" str={endRange} setStr={setEndRange} generateCitation={generateCitation} />
             <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
             <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
-            <Pages pages={pages} setPages={setPages} />
+            <Pages pages={pages} setPages={setPages} generateCitation={generateCitation} />
             <Citation citation={citation} generateCitation={generateCitation} />
           </div>
         </Card>
