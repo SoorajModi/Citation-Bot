@@ -6,7 +6,16 @@ function Header() {
   return (
     <header>
       <Navbar collapseOnSelect expand="lg" variant="dark" className="header_color">
-        <Navbar.Brand href="/">Citation Manager</Navbar.Brand>
+        <Navbar.Brand href="/">
+          {/* <img */}
+          {/*  src="/CiteBot.ico" */}
+          {/*  width="30" */}
+          {/*  height="30" */}
+          {/*  className="d-inline-block align-top" */}
+          {/*  alt="Citation Bot Logo" */}
+          {/* /> */}
+          Citation Bot
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

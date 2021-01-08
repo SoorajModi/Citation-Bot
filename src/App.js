@@ -15,14 +15,12 @@ import ChicagoWebsite from './components/chicagoComponents/ChicagoWebsite';
 import ChicagoLecture from './components/chicagoComponents/ChicagoLecture';
 import NotFound from './components/404';
 import About from './components/About';
-import Meta from './components/Meta';
 import ChicagoEBook from './components/chicagoComponents/ChicagoEBook';
 import ChicagoEJournal from './components/chicagoComponents/ChicagoEJournal';
 
 export default function App() {
   return (
     <>
-      <Meta />
       <Header />
       <div className="main-body">
         <Router>
