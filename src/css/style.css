@@ -19,8 +19,11 @@ html {
 
 body {
     background: #ede4d9;
-    padding-bottom: 5.0rem;
+}
+
+.main-body {
     position: relative;
+    min-height: 100vh;
 }
 
 card {

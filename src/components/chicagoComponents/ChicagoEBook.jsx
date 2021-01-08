@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/subpage.css';
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 import Authors from '../formComponents/Authors';
 import Pages from '../formComponents/Pages';
 import Citation from '../formComponents/Citaton';
@@ -33,23 +34,21 @@ function ChicagoBook() {
   };
 
   return (
-    <div className="container">
+    <Container>
       <h1 className="subpage-heading">Chicago Style Electronic Book Citation</h1>
-      <div className="data-entry">
-        <Card>
-          <div className="container form-start">
-            <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
-            <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
-            <StringComponent formLabel="Place of Publication" str={placeOfPublication} setStr={setPlaceOfPublication} generateCitation={generateCitation} />
-            <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
-            <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
-            <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
-            <Pages pages={pages} setPages={setPages} generateCitation={generateCitation} />
-            <Citation citation={citation} generateCitation={generateCitation} />
-          </div>
-        </Card>
-      </div>
-    </div>
+      <Card className="data-entry">
+        <Container className="form-start">
+          <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
+          <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
+          <StringComponent formLabel="Place of Publication" str={placeOfPublication} setStr={setPlaceOfPublication} generateCitation={generateCitation} />
+          <StringComponent formLabel="Year of Publication" str={yearOfPublication} setStr={setYearOfPublication} generateCitation={generateCitation} />
+          <StringComponent formLabel="URL/DOI" str={URL} setStr={setURL} generateCitation={generateCitation} />
+          <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+          <Pages pages={pages} setPages={setPages} generateCitation={generateCitation} />
+          <Citation citation={citation} generateCitation={generateCitation} />
+        </Container>
+      </Card>
+    </Container>
   );
 }
 

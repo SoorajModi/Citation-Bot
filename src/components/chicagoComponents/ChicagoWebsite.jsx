@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
@@ -30,22 +31,20 @@ function ChicagoWebsite() {
   };
 
   return (
-    <div className="container">
+    <Container>
       <h1 className="subpage-heading">Chicago Style Web Page Citation</h1>
-      <div className="data-entry">
-        <Card>
-          <div className="container form-start">
-            <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
-            <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
-            <StringComponent formLabel="Site Name" str={siteName} setStr={setSiteName} generateCitation={generateCitation} />
-            <StringComponent formLabel="Date" str={date} setStr={setDate} generateCitation={generateCitation} />
-            <StringComponent formLabel="URL" str={URL} setStr={setURL} generateCitation={generateCitation} />
-            <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
-            <Citation citation={citation} generateCitation={generateCitation} />
-          </div>
-        </Card>
-      </div>
-    </div>
+      <Card className="data-entry">
+        <Container className="form-start">
+          <StringComponent formLabel="Title" str={title} setStr={setTitle} generateCitation={generateCitation} />
+          <StringComponent formLabel="Publisher" str={publisher} setStr={setPublisher} generateCitation={generateCitation} />
+          <StringComponent formLabel="Site Name" str={siteName} setStr={setSiteName} generateCitation={generateCitation} />
+          <StringComponent formLabel="Date" str={date} setStr={setDate} generateCitation={generateCitation} />
+          <StringComponent formLabel="URL" str={URL} setStr={setURL} generateCitation={generateCitation} />
+          <Authors authors={authors} setAuthors={setAuthors} generateCitation={generateCitation} />
+          <Citation citation={citation} generateCitation={generateCitation} />
+        </Container>
+      </Card>
+    </Container>
   );
 }
 
