@@ -40,7 +40,7 @@ function ChicagoLecture() {
           <StringComponent formLabel="University" str={university} setStr={setUniversity} generateCitation={generateCitation} />
           <StringComponent formLabel="Province" str={province} setStr={setProvince} generateCitation={generateCitation} />
           <StringComponent formLabel="City" str={city} setStr={setCity} generateCitation={generateCitation} />
-          <Authors authors={profs} setAuthors={setProfs} generateCitation={generateCitation} label="Professor(s)" />
+          <Authors authors={profs} setAuthors={setProfs} generateCitation={generateCitation} label="Professors" />
           <Citation citation={citation} generateCitation={generateCitation} />
         </Container>
       </Card>
