@@ -1,0 +1,21 @@
+{
+  "short_name": "Citation Bot",
+  "name": "Citation Bot: automatically generate citations",
+  "description": "A tool to generate citations for a variety of sources in Chicago Manual of Style",
+  "icons": [
+    {
+      "src": "CiteBot.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "CiteBot.svg",
+      "sizes": "64x64",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#174c60",
+  "background_color": "#ffffff"
+}
