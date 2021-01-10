@@ -5,7 +5,7 @@ import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
 
-const CMOS = require('chicagomanualofstyle');
+const { lecture } = require('chicagomanualofstyle');
 
 function ChicagoLecture() {
   const emptyValue = { value: '' };
@@ -18,7 +18,7 @@ function ChicagoLecture() {
   const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
   const generateCitation = () => {
-    const lecture = CMOS.lecture({
+    const cmos = lecture({
       title: title.value || 'Must Specify Title',
       authorList: profs,
       date: date.value,
@@ -27,7 +27,7 @@ function ChicagoLecture() {
       city: city.value,
     });
 
-    setCitation({ bibliography: lecture.bibliography, notes: lecture.notes });
+    setCitation({ bibliography: cmos.bibliography, notes: cmos.notes });
   };
 
   return (

@@ -15,8 +15,7 @@ import ChicagoWebsite from './components/chicagoComponents/ChicagoWebsite';
 import ChicagoLecture from './components/chicagoComponents/ChicagoLecture';
 import NotFound from './components/404';
 import About from './components/About';
-import ChicagoEBook from './components/chicagoComponents/ChicagoEBook';
-import ChicagoEJournal from './components/chicagoComponents/ChicagoEJournal';
+import ChicagoNewspaper from './components/chicagoComponents/ChicagoNewspaper';
 
 export default function App() {
   return (
@@ -26,11 +25,10 @@ export default function App() {
         <Router>
           <Switch>
             <Route path="/chicago-book" component={ChicagoBook} />
-            <Route path="/chicago-electronic-book" component={ChicagoEBook} />
             <Route path="/chicago-journal" component={ChicagoJournal} />
-            <Route path="/chicago-electronic-journal" component={ChicagoEJournal} />
             <Route path="/chicago-website" component={ChicagoWebsite} />
             <Route path="/chicago-lecture" component={ChicagoLecture} />
+            <Route path="/chicago-newspaper" component={ChicagoNewspaper} />
             <Route path="/about" component={About} />
             <Route exact path="/" component={Home} />
             <Route path="*" component={NotFound} />

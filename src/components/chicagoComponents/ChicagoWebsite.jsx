@@ -5,7 +5,7 @@ import Authors from '../formComponents/Authors';
 import Citation from '../formComponents/Citaton';
 import StringComponent from '../formComponents/StringComponent';
 
-const CMOS = require('chicagomanualofstyle');
+const { webpage } = require('chicagomanualofstyle');
 
 function ChicagoWebsite() {
   const emptyValue = { value: '' };
@@ -18,7 +18,7 @@ function ChicagoWebsite() {
   const [citation, setCitation] = useState({ bibliography: '', notes: [] });
 
   const generateCitation = () => {
-    const webpage = CMOS.webpage({
+    const cmos = webpage({
       title: title.value || 'Must Specify Title',
       authorList: authors,
       publisher: publisher.value,
@@ -27,7 +27,7 @@ function ChicagoWebsite() {
       url: URL.value || 'Must specify url',
     });
 
-    setCitation({ bibliography: webpage.bibliography, notes: webpage.notes });
+    setCitation({ bibliography: cmos.bibliography, notes: cmos.notes });
   };
 
   return (

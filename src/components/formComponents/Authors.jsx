@@ -37,12 +37,12 @@ const handleAddAuthor = (authors, setAuthors) => {
 };
 
 const Authors = ({
-  authors, setAuthors, generateCitation,
+  label, authors, setAuthors, generateCitation,
 }) => (
   <>
     <Form inline className="pad-element-bottom">
       <Form.Label column sm="2">
-        Authors
+        {label}
       </Form.Label>
       <ButtonGroup className="mb-2">
         <Button variant="secondary" onClick={() => handleResetAuthors(setAuthors, generateCitation)}>
@@ -82,12 +82,14 @@ const Authors = ({
 );
 
 Authors.defaultProps = {
+  label: 'Authors',
   authors: [],
   setAuthors: null,
   generateCitation: null,
 };
 
 Authors.propTypes = {
+  label: PropTypes.string,
   authors: PropTypes.arrayOf(
     PropTypes.shape({
       first: PropTypes.string,
