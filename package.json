@@ -1,7 +1,7 @@
 {
   "name": "citation-bot",
   "version": "0.1.0",
-  "homepage": "http://soorajmodi.github.io/citation-bot",
+  "homepage": "http://soorajmodi.github.io/Citation-Bot",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -30,6 +30,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix && eslint --ext .jsx . --fix",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

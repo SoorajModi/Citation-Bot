@@ -27,7 +27,7 @@ function ChicagoFilm() {
       distributor: distributor.value,
       city: city.value,
       medium: medium.value || 'Digital',
-        scenes: [],
+      scenes: [],
     });
 
     setCitation({ bibliography: cmos.bibliography, notes: cmos.notes });

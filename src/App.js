@@ -23,7 +23,7 @@ export default function App() {
     <>
       <Header />
       <div className="main-body">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route path="/chicago-book" component={ChicagoBook} />
             <Route path="/chicago-journal" component={ChicagoJournal} />
