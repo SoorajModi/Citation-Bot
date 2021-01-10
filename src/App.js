@@ -16,6 +16,7 @@ import ChicagoLecture from './components/chicagoComponents/ChicagoLecture';
 import NotFound from './components/404';
 import About from './components/About';
 import ChicagoNewspaper from './components/chicagoComponents/ChicagoNewspaper';
+import ChicagoFilm from './components/chicagoComponents/ChicagoFilm';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/chicago-website" component={ChicagoWebsite} />
             <Route path="/chicago-lecture" component={ChicagoLecture} />
             <Route path="/chicago-newspaper" component={ChicagoNewspaper} />
+            <Route path="/chicago-film" component={ChicagoFilm} />
             <Route path="/about" component={About} />
             <Route exact path="/" component={Home} />
             <Route path="*" component={NotFound} />

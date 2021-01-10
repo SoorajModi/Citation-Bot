@@ -25,6 +25,7 @@ function Header() {
               <NavDropdown.Item href="/chicago-website">Website</NavDropdown.Item>
               <NavDropdown.Item href="/chicago-lecture">Lecture</NavDropdown.Item>
               <NavDropdown.Item href="/chicago-newspaper">Newspaper</NavDropdown.Item>
+              <NavDropdown.Item href="/chicago-film">Film</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
