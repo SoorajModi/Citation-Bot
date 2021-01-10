@@ -25,13 +25,13 @@ export default function App() {
       <div className="main-body">
         <Router basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route path="/chicago-book" component={ChicagoBook} />
-            <Route path="/chicago-journal" component={ChicagoJournal} />
-            <Route path="/chicago-website" component={ChicagoWebsite} />
-            <Route path="/chicago-lecture" component={ChicagoLecture} />
-            <Route path="/chicago-newspaper" component={ChicagoNewspaper} />
-            <Route path="/chicago-film" component={ChicagoFilm} />
-            <Route path="/about" component={About} />
+            <Route exact path="/chicago-book" component={ChicagoBook} />
+            <Route exact path="/chicago-journal" component={ChicagoJournal} />
+            <Route exact path="/chicago-website" component={ChicagoWebsite} />
+            <Route exact path="/chicago-lecture" component={ChicagoLecture} />
+            <Route exact path="/chicago-newspaper" component={ChicagoNewspaper} />
+            <Route exact path="/chicago-film" component={ChicagoFilm} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/" component={Home} />
             <Route path="*" component={NotFound} />
           </Switch>
