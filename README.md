@@ -3,6 +3,8 @@
 A web application to easily generate and manage citations. Written in JavaScript with React.js, Bootstrap, and utilizing the 
 [Chicago Manual of Style](https://www.npmjs.com/package/chicagomanualofstyle) NPM package.
 
+You can view the deployed application [here](https://soorajmodi.github.io/Citation-Bot/).
+
 ## Features
 
 Generates citations in Chicago Manual of Style (17th ed.) for the following formats:
