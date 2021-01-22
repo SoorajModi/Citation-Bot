@@ -14,6 +14,11 @@ Generates citations in Chicago Manual of Style (17th ed.) for the following form
 - Newspapers
 - Films
 
+## Upcoming Features
+
+- Create a project and save citations to the project.
+- Expanded range of sources including translated texts, interviews, TV shows, government publications, and more.
+
 ## How to Run
 
 In the project directory, you can run:
